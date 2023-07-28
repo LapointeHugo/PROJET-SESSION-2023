@@ -17,12 +17,12 @@
             <div class="container-fluid" style="padding: 0px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <img class="nav-link active" src="/images/Logo.png" style="padding: 0px">
+                        <a href="/Home/Index"><img class="nav-link active" src="/images/Logo.png" style="padding: 0px"></a>
                     </li>
                     <li id="page-select" class="nav-item">
                         <div style="font-weight: bold;">
                             <p style="margin: 0px; font-size: 11px; color: rgb(130, 130, 130);">SELECT PAGE</p>
-                            <p style="margin: 0px; font-size: 11px; color: white;">HOME</p>
+                            <p style="margin: 0px; font-size: 11px; color: white;">@RenderSection("NomPage")</p>
                         </div>
                         <i class="fa-solid fa-chevron-down" style="color: #828282;"></i>
                     </li>
@@ -71,7 +71,7 @@
                 <p class="lien-footer">Become a Partner</p>
                 <p class="lien-footer">Privacy</p>
                 <p class="lien-footer">Trademark</p>
-                <img src="/images/Logo.png">
+                <a href="/Home/Index"><img src="/images/Logo.png"></a>
             </div>
             <div class="col-4" style="text-align: right; font-weight: 600;">
                 <p style="font-weight: bold; color: rgb(1, 180, 255);">SOCIAL</p>
