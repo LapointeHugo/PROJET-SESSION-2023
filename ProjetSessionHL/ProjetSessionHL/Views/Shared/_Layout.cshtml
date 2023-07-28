@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styleAcceuil.css">
+
+    <script src="https://kit.fontawesome.com/963347b1c3.js" crossorigin="anonymous"></script>
+    <title>Layout</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light" style="padding: 0px; background-color: black;">
+            <div class="container-fluid" style="padding: 0px">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/Home/Index"><img class="nav-link active" src="/images/Logo.png" style="padding: 0px"></a>
+                    </li>
+                    <li id="page-select" class="nav-item">
+                        <div style="font-weight: bold;">
+                            <p style="margin: 0px; font-size: 11px; color: rgb(130, 130, 130);">SELECT PAGE</p>
+                            <p style="margin: 0px; font-size: 11px; color: white;">@RenderSection("NomPage")</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down" style="color: #828282;"></i>
+                    </li>
+                    <li id="lien-menu" class="nav-item">
+                        <p style="margin: 0px">SESSION</p>
+                    </li>
+                    <li id="lien-menu" class="nav-item">
+                        <p style="margin: 0px">PRIVACY</p>
+                    </li>
+                    <span id="lien-menu" class="nav-text">
+                        <p style="margin: 0px; margin-right: 10px;">SOCIAL</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                    <span id="language" class="nav-text">
+                        <p id="langue" style="margin: 0px">EN</p>
+                    </span>
+                    <span id="language" class="nav-text">
+                        <p id="langue" style="margin: 0px">LOG<a style="color: rgb(1, 180, 255)">IN</a></p>
+                    </span>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <hr class="solid" style="margin: 0px">
+
+    @RenderBody()
+
+    <hr class="solid" style="margin: 0px">
+
+    <footer class="container" style="height: 430px; color: white;">
+        <div class="row" style="height: 100%; padding-top: 80px;">
+            <div class="col-4" style="font-weight: 600;">
+                <p style="font-weight: bold; color: rgb(1, 180, 255);">GAMES</p>
+                <p class="lien-footer">Valorant</p>
+                <p class="lien-footer">League of Legends</p>
+                <p class="lien-footer">Counter Strike: Global-Offensive</p>
+                <p class="lien-footer">Rocket League</p>
+                <p class="lien-footer">Apex Legends</p>
+                <p class="lien-footer">Fortnite</p>
+            </div>
+            <div class="col-4" style="text-align:center; font-weight: 600;">
+                <p style="font-weight: bold; color: rgb(1, 180, 255);">COMPANY</p>
+                <p class="lien-footer">Customer Support</p>
+                <p class="lien-footer">Become a Coach</p>
+                <p class="lien-footer">Become a Partner</p>
+                <p class="lien-footer">Privacy</p>
+                <p class="lien-footer">Trademark</p>
+                <a href="/Home/Index"><img src="/images/Logo.png"></a>
+            </div>
+            <div class="col-4" style="text-align: right; font-weight: 600;">
+                <p style="font-weight: bold; color: rgb(1, 180, 255);">SOCIAL</p>
+                <p class="lien-footer">Twitch</p>
+                <p class="lien-footer">Twitter</p>
+                <p class="lien-footer">Instagram</p>
+                <p class="lien-footer">YouTube</p>
+                <p class="lien-footer">Discord</p>
+                <p class="lien-footer">App Store</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
