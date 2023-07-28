@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
+using ProjetSessionHL.Models;
 
 var builder = WebApplication.CreateBuilder(args); // Crée une web app avec les paramètres envoyés
 builder.Services.AddControllersWithViews(); // Permet MVC
 builder.Services.AddRazorPages(); // Permet utilisation de Razor
 
-//builder.Services.AddSingleton<Database>(); // Permet l'utilisation du Singleton
+builder.Services.AddSingleton<BaseDeDonnees>(); // Permet l'utilisation du Singleton
 
 var app = builder.Build();
 
