@@ -1,0 +1,245 @@
+body {
+    background-color: black;
+}
+
+.nav-link {
+    height: 100%;
+}
+
+#page-select {
+    background-color: rgb(29, 29, 23);
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#lien-menu {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(94, 94, 94);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+#lien-menu:hover {
+    color: rgb(1, 180, 255);
+    border-bottom: 2px solid rgb(1, 180, 255);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#language {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+#langue {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid rgb(94, 94, 94);
+    border-radius: 10px;
+    background-color: rgb(29, 29, 23);
+}
+
+#langue:hover {
+    color: rgb(1, 180, 255);
+    border: 2px solid rgb(1, 180, 255);
+}
+
+hr.solid {
+    border-top: 3px solid rgb(1, 180, 255);
+}
+
+#contenueHéro {
+    height: 800px;
+    background-image: url(../images/ImageFondHero.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#titreHéro {
+    background-color: rgb(0, 0, 0, .7);
+    width: 100%;
+    text-align: center;
+    font-size: 96px;
+}
+
+#boutonHéro {
+    background-color: rgb(0, 0, 0, .7);
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 26px;
+}
+
+#boutonHéro:hover {
+    color: rgb(1, 180, 255);
+    border: 2px solid rgb(1, 180, 255);
+}
+
+#background {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,86,122,0.42) 50%, rgba(0,0,0,1) 100%);
+}
+
+#contenuelisteParent {
+    
+    padding-top: 80px;
+    padding-bottom: 80px;
+    color: white;
+}
+
+.imageJeux {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.titre-jeux {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#boutonSession {
+    font-weight: 600;
+    font-size: 14px; 
+    text-align: center; 
+    color: white;
+    background-color: rgb(0,0,0, 0.5);
+    border: 2px white solid;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+#boutonSession:hover, #boutonPro:hover {
+    border: 2px solid rgb(1, 180, 255);
+    color: rgb(1, 180, 255);
+}
+
+#infosJeux {
+    height: auto;
+}
+
+#sectionPro {
+    margin-top: 2%;
+}
+
+#boutonPro {
+    font-weight: 600;
+    font-size: 14px; 
+    text-align: center; 
+    color: white;
+    background-color: rgb(0,0,0, 0.5);
+    border: 2px white solid;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+
+#imagePro {
+    border: 2px solid rgba(255, 255, 255, 0.562);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+#imagePro:hover {
+    border: 2px solid rgb(1, 180, 255);
+}
+
+.lien-footer {
+    color: white;
+}
+
+.lien-footer:hover {
+    color: rgb(1, 180, 255);
+}
+
+@media (max-width: 1200px){
+    #infosJeux {
+        margin-top: 40px;
+    }
+
+    .titre-jeux {
+        text-align: center;
+    }
+
+    .description {
+        margin-left: 200px;
+        margin-right: 200px;
+        padding-bottom: 20px;
+        text-align: justify;
+    }
+
+    #sectionPro {
+        margin-top: 45px;
+    }
+}
+
+@media (max-width: 992px){
+    .description {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    #boutonPro {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px){
+    #sectionPro {
+        margin-top: 65px;
+    }
+
+    #boutonHéro {
+        font-size: 20px;
+    }
+
+    #titreHéro {
+        font-size: 70px;
+    }
+
+    #contenueHéro {
+        height: 700px;
+    }
+}
+
+@media (max-width: 576px){
+    .titre-jeux {
+        font-size: 28px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
