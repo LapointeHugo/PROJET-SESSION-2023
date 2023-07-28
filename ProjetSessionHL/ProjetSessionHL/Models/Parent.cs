@@ -12,6 +12,8 @@
 
         public string ImgFile { get; set; }
 
+        public string ImgFileEquipe { get; set; }
+
         public int Courses { get; set; }
 
         public int Lessons { get; set; }

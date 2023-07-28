@@ -1,6 +1,4 @@
-﻿@{
-    Layout = "_Layout";
-}
+﻿@model PageRechercheViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,113 +24,106 @@
             <p>SEARCH <a style="color: rgb(1,180,255)">FORM</a></p>
         </div>
         <div id="formRecherche">
-            <div id="selectionJeux" class="" style="text-align: center">
-                <p class="jeux">Valorant</p>
-                <p class="jeux">League of Legends</p>
-                <p class="jeux">Counter-Strike: GO</p>
-            </div>
-            <div class="">
-                <hr class="solid">
-            </div>
-            <div class="row justify-content-around" style="margin-top: 30px; padding: 0px;">
-                <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 equipe">
-                    <label for="teamName" class="nomChamp">Team Name :</label><br>
-                    <input type="text" id="teamName" name="teamName" class="details" placeholder="Fnatic">
+            <form action="Recherche" method="post">
+                <div id="selectionJeux" class="" style="text-align: center">
+                    @if (@Model.Criteres.EstJeuxValorant)
+                    {
+                        <label for="jeux" class="jeux">Valorant</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxValorant" id="box" value="true" checked>
+                    }
+                    else
+                    {
+                        <label for="jeux" class="jeux">Valorant</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxValorant" id="box" value="true">
+                    }
+
+                    @if (@Model.Criteres.EstJeuxLeagueofLegends)
+                    {
+                        <label for="jeux" class="jeux">League of Legends</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxLeagueofLegends" id="box" value="true" checked>
+                    }
+                    else
+                    {
+                        <label for="jeux" class="jeux">League of Legends</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxLeagueofLegends" id="box" value="true">
+                    }
+
+                    @if (@Model.Criteres.EstJeuxCsgo)
+                    {
+                        <label for="jeux" class="jeux">Counter-Strike</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxCsgo" id="box" value="true" checked>
+                    }
+                    else
+                    {
+                        <label for="jeux" class="jeux">Counter-Strike</label>
+                        <input type="checkbox" id="jeux" name="EstJeuxCsgo" id="box" value="true">
+                    }
                 </div>
-                <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
-                    <p class="nomChamp" style="margin-bottom: 0px">Creation :</p>
-                    <select class="details">
-                        <option>All</option>
-                        <option>2023</option>
-                        <option>2022</option>
-                        <option>2021</option>
-                        <option>2020</option>
-                    </select>
+                <div class="">
+                    <hr class="solid">
                 </div>
-            </div>
-            <div class="row justify-content-around" style="margin-top: 30px; padding: 0px;">
-                <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7  d-flex align-items-center site">
-                    <label for="website" class="nomChamp">Has Website &nbsp;&nbsp;&nbsp;</label>
-                    <input type="checkbox" id="website" name="website" id="box" style="margin-left: 50px">
+                <div class="row justify-content-around" style="margin-top: 30px; padding: 0px;">
+                    <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 equipe">
+                        <label for="teamName" class="nomChamp">Team Name :</label><br>
+                        <input type="text" id="teamName" name="Nom" class="details" value="@Model.Criteres.Nom">
+                    </div>
+                    <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
+                        <p class="nomChamp" style="margin-bottom: 0px">Creation :</p>
+                        <select class="details" name="Creation">
+                            <option>All</option>
+                            @for (int index = 2023; index >= 2000; index--)
+                            {
+                                <option>@index</option>
+                            }
+                        </select>
+                    </div>
                 </div>
-                <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
-                    <p class="nomChamp" style="margin-bottom: 0px">Region :</p>
-                    <select class="details">
-                        <option>All</option>
-                        <option>North America</option>
-                        <option>Europe</option>
-                        <option>Korea</option>
-                        <option>China</option>
-                    </select>
+                <div class="row justify-content-around" style="margin-top: 30px; padding: 0px;">
+                    <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7  d-flex align-items-center site">
+                        @if (Model.Criteres.PossedeSite)
+                        {
+                            <label for="website" class="nomChamp">Has Website &nbsp;&nbsp;&nbsp;</label>
+                            <input type="checkbox" id="website" name="PossedeSite" id="box" style="margin-left: 50px" value="true" checked>
+                        }  
+                        else
+                        {
+                            <label for="website" class="nomChamp">Has Website &nbsp;&nbsp;&nbsp;</label>
+                            <input type="checkbox" id="website" name="PossedeSite" id="box" style="margin-left: 50px" value="true">
+                        }
+                    </div>
+                    <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
+                        <p class="nomChamp" style="margin-bottom: 0px">Region :</p>
+                        <select class="details" name="Region">
+                            @foreach (string item in Model.Criteres.ChoixRegion)
+                            {
+                                <option>@item</option>
+                            }
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center" style="margin-top: 50px; padding: 0px; text-align: center; margin-bottom: 40px; padding-bottom: 30px;">
-                <div class="row justify-content-center">
-                    <button type="button" class="btnReset col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">RESET</button>
-                    <button type="button" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">SEARCH</button>
+                <div class="row justify-content-center" style="margin-top: 50px; padding: 0px; text-align: center; margin-bottom: 40px; padding-bottom: 30px;">
+                    <div class="row justify-content-center">
+                        <input type="reset" class="btnReset col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <button type="submit" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">SEARCH</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
     <hr class="solid" style="margin-top: 0px">
 
     <div id="imageFondResult">
-        <p id="sousTitreResultat">LIST OF <a style="color: rgb(1,180,255)">RESULTS</a><br>(<a style="color: rgb(1,180,255)">12</a> results)</p>
+        <p id="sousTitreResultat">LIST OF <a style="color: rgb(1,180,255)">RESULTS</a><br>(<a style="color: rgb(1,180,255)">@Model.Resultat.Count</a> results)</p>
         <div id="listeResultat" class="container">
             <div class="row" style="height: auto">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoFnatic.png" class="imageLogo">
-                    <p class="titreEquipe">FNATIC</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoC9.png" class="imageLogo">
-                    <p class="titreEquipe">CLOUD 9</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoTL.png" class="imageLogo">
-                    <p class="titreEquipe">TEAM LIQUID</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoFPX.png" class="imageLogo">
-                    <p class="titreEquipe">FUNPLUS PHOENIX</p>
-                </div>
-            </div>
-            <div class="row" style="height: auto">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoG2.png" class="imageLogo">
-                    <p class="titreEquipe">G2 ESPORTS</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoFlyQuest.png" class="imageLogo">
-                    <p class="titreEquipe">FLYQUEST</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoT1.png" class="imageLogo">
-                    <p class="titreEquipe">T1</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoTSM.png" class="imageLogo">
-                    <p class="titreEquipe">TEAM SOLO MID</p>
-                </div>
-            </div>
-            <div class="row" style="height: auto">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoG2.png" class="imageLogo">
-                    <p class="titreEquipe">G2 ESPORTS</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoFlyQuest.png" class="imageLogo">
-                    <p class="titreEquipe">FLYQUEST</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoT1.png" class="imageLogo">
-                    <p class="titreEquipe">T1</p>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">
-                    <img src="/images/LogoTSM.png" class="imageLogo">
-                    <p class="titreEquipe">TEAM SOLO MID</p>
-                </div>
+                @foreach (var item in @Model.Resultat)
+                {
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">                  
+                        <img src="/images/@(item.ImgFile)" class="imageLogo">
+                        <p class="titreEquipe">@(item.Nom)</p>                                    
+                    </div>
+                }
             </div>
         </div>
     </div>

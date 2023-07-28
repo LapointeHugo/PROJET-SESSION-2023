@@ -21,8 +21,9 @@ namespace ProjetSessionHL.Models
                 Nom = "Valorant",
                 Description = "Bienvenue dans le monde de Valorant, un jeu de tir tactique" +
                 " COMPÉTITIF où l'équilibre entre stratégie et précision est la clé de la victoire.Préparez - vous à plonger dans un UNIVERS" +
-                " FUTURISTE où des agents d'élite s'affrontent dans des affrontements intenses et imprévisibles.",
+                " FUTURISTE!",
                 ImgFile = "ImageValorant.png",
+                ImgFileEquipe = "ImageValorantEquipe.png",
                 Courses = 6,
                 Lessons = 54,
                 Coaches = 15
@@ -35,6 +36,7 @@ namespace ProjetSessionHL.Models
                 " compétitif où deux équipes s'affrontent pour détruire la base adverse à travers des affrontements stratégiques et des" +
                 " mécaniques de jeu variées.",
                 ImgFile = "ImageLol.png",
+                ImgFileEquipe = "ImageLolEquipe.png",
                 Courses = 29,
                 Lessons = 519,
                 Coaches = 30
@@ -45,8 +47,9 @@ namespace ProjetSessionHL.Models
                 Nom = "CSGO",
                 Description = "Counter-Strike: Global Offensive" +
                 " (CS: GO) est un jeu de tir à la première personne en ligne où les joueurs s'affrontent dans des équipes en utilisant" +
-                " des armes tactiques et en se livrant à des affrontements intenses pour atteindre leurs objectifs.",
+                " des armes tactiques.",
                 ImgFile = "ImageCsgo.png",
+                ImgFileEquipe = "ImageCsgoEquipe.png",
                 Courses = 5,
                 Lessons = 102,
                 Coaches = 6
