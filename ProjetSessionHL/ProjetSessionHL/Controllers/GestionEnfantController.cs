@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetSessionHL.Models;
+using System.Linq;
 
 namespace ProjetSessionHL.Controllers
 {
@@ -89,7 +90,11 @@ namespace ProjetSessionHL.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var equipe = _baseDeDonnees.Enfants.FirstOrDefault(e => e.Id == id);
+                equipe.Parent.Enfants.Remove(equipe);
+                _baseDeDonnees.Enfants.Remove(equipe);
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
