@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model Enfant
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +16,8 @@
 </head>
 <body>
     <div id="contenueHéro" class="container-fluid">
-        <p id="titreHéro" style="font-weight: bold; margin-bottom: 42px;"><a style="color: rgb(1, 180, 255)">F</a>NATIC</p>
-        <img src="/images/LogoFnatic.png">
+        <p id="titreHéro" style="font-weight: bold; margin-bottom: 42px;"><a style="color: rgb(1, 180, 255)">@(Model.Nom)</a></p>
+        <img src="/images/@(Model.ImgFile)" height="200px" width="200px">
     </div>
     <hr class="solid" style="margin: 0px">
 
@@ -43,13 +45,13 @@
             <div class="row justify-content-around align-items-center" style="height: 350px;">
                 <div class="col-4">
                     <div class="row">
-                        <p class="infos">Location : <a style="color: rgb(1, 180, 255)">United Kingdom</a></p>
+                        <p class="infos">Location : <a style="color: rgb(1, 180, 255)">@(Model.Location)</a></p>
                     </div>
                     <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                        <p class="infos">Region : <a style="color: rgb(1, 180, 255)">Europe</a></p>
+                        <p class="infos">Region : <a style="color: rgb(1, 180, 255)">@(Model.Region)</a></p>
                     </div>
                     <div class="row">
-                        <p class="infos">Abbreviation : <a style="color: rgb(1, 180, 255)">FNC</a></p>
+                        <p class="infos">Abbreviation : <a style="color: rgb(1, 180, 255)">@(Model.Abbreviation)</a></p>
                     </div>
                 </div>
                 <div class="col-2">
@@ -71,13 +73,13 @@
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <p class="infos">Total Winnings : <a style="color: rgb(1, 180, 255)">2,973,025 $</a></p>
+                        <p class="infos">Total Winnings : <a style="color: rgb(1, 180, 255)">@(Model.MontantGagnee) $</a></p>
                     </div>
                     <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-                        <p class="infos">Creation : <a style="color: rgb(1, 180, 255)">2004</a></p>
+                        <p class="infos">Creation : <a style="color: rgb(1, 180, 255)">@(Model.AnneCreation)</a></p>
                     </div>
                     <div class="row">
-                        <p class="infos">Website : <a style="color: rgb(1, 180, 255)">fnatic.com</a></p>
+                        <p class="infos">Website : <a style="color: rgb(1, 180, 255)">@(Model.Site)</a></p>
                     </div>
                 </div>
             </div>

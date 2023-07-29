@@ -35,9 +35,9 @@ namespace ProjetSessionHL.Controllers
             return View(model);
         }
 
-        //[Route("/Enfant/Detail/{id}")]
-        //[Route("/Enfant/{id}")]
-        //[Route("/{id}")]
+        [Route("/Enfant/Detail/{id}")]
+        [Route("/Enfant/{id}")]
+        [Route("/{id}")]
         public IActionResult DetailParID(int id)
         {
             var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Id == id).SingleOrDefault();
@@ -47,24 +47,24 @@ namespace ProjetSessionHL.Controllers
             }
             else
             {
-                return View(enfantsRecherché);
+                return View("Detail", enfantsRecherché);
             }
         }
 
         //[Route("/Enfant/Detail/{string}")]
         //[Route("/Enfant/{string}")]
         //[Route("/{string}")]
-        public IActionResult DetailParNom(string nom)
-        {
-            var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Nom == nom).SingleOrDefault();
-            if (enfantsRecherché == null)
-            {
-                return View("NonTrouve");
-            }
-            else
-            {
-                return View(enfantsRecherché);
-            }
-        }
+        //public IActionResult DetailParNom(string nom)
+        //{
+        //    var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Nom == nom).SingleOrDefault();
+        //    if (enfantsRecherché == null)
+        //    {
+        //        return View("NonTrouve");
+        //    }
+        //    else
+        //    {
+        //        return View("Detail", enfantsRecherché);
+        //    }
+        //}
     }
 }
