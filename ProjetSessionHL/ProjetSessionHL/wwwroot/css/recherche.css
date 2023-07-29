@@ -226,6 +226,11 @@ hr.solid {
     margin-top: 10px;
 }
 
+.imageLogo {
+    width: 196px;
+    height: 196px;
+}
+
 .lien-footer {
     color: white;
 }
