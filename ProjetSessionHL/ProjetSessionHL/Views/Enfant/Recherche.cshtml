@@ -73,7 +73,14 @@
                             <option>All</option>
                             @for (int index = 2023; index >= 2000; index--)
                             {
-                                <option>@index</option>
+                                if (@Model.Criteres.Creation == index)
+                                {
+                                    <option selected>@index</option>
+                                }
+                                else
+                                {
+                                    <option>@index</option>
+                                }
                             }
                         </select>
                     </div>
@@ -96,7 +103,14 @@
                         <select class="details" name="Region">
                             @foreach (string item in Model.Criteres.ChoixRegion)
                             {
-                                <option>@item</option>
+                                if (@Model.Criteres.Region == item)
+                                {
+                                    <option selected>item</option>
+                                }
+                                else
+                                {
+                                    <option>item</option>
+                                }
                             }
                         </select>
                     </div>

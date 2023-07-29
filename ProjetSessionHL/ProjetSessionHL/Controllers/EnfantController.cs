@@ -13,6 +13,7 @@ namespace ProjetSessionHL.Controllers
             _baseDeDonnees = baseDeDonnees;
         }
 
+        [Route("/Enfant/Recherche")]
         public IActionResult Recherche()
         {
             var model = new PageRechercheViewModel();
@@ -22,7 +23,7 @@ namespace ProjetSessionHL.Controllers
             model.Criteres.EstJeuxCsgo = true;
             model.Resultat = _baseDeDonnees.Enfants.ToList();
 
-            return View(model);
+            return View("Recherche", model);
         }
 
         [HttpPost]
@@ -32,7 +33,7 @@ namespace ProjetSessionHL.Controllers
             model.Criteres = criteres;
             model.Resultat = _baseDeDonnees.Enfants.ToList();
 
-            return View(model);
+            return View("Recherche", model);
         }
 
         [Route("/Enfant/Detail/{id}")]
