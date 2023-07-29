@@ -10,13 +10,18 @@
 
     <link rel="stylesheet" href="~/css/détailséquipe.css">
 
-    <title>Détails Équipe</title>
+    <title>Non Trouve</title>
 </head>
 <body>
+    <div class="container" style="padding-top:80px; padding-bottom:80px;text-align:center">
+        <h1 style="color: white;">Equipe non-trouve</h1>
+        <h2 style="color: white;">L'equipe que vous avez tenter d'afficher n'a pas ete trouve :/</h2>
+        <h3 style="color: white;">Meilleur chance la prochaine fois</h3>
 
-    <h1 style="color: white;">Equipe non-trouve</h1>
-    <h2 style="color: white;">Le personnage que vous avez tenter d'afficher n'a pas ete trouve :/</h2>
-    <h3 style="color: white;">Meilleur chance la prochaine fois</h3>
+        <div style="margin-top:40px">
+            <a asp-controller="Home" asp-action="Index">Back home</a>
+        </div>
+    </div>
 
     @section NomPage {
         ERREUR

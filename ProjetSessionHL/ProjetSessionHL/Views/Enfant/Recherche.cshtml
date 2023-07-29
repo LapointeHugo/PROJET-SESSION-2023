@@ -105,11 +105,11 @@
                             {
                                 if (@Model.Criteres.Region == item)
                                 {
-                                    <option selected>item</option>
+                                    <option selected>@item</option>
                                 }
                                 else
                                 {
-                                    <option>item</option>
+                                    <option>@item</option>
                                 }
                             }
                         </select>
@@ -118,7 +118,7 @@
                 <div class="row justify-content-center" style="margin-top: 50px; padding: 0px; text-align: center; margin-bottom: 40px; padding-bottom: 30px;">
                     <div class="row justify-content-center">
                         <input type="reset" class="btnReset col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button type="submit" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">SEARCH</button>
+                        <button type="button" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12" onclick="location.href='@Url.Action("Filtrer", "Enfant")'">SEARCH</button>
                     </div>
                 </div>
             </form>

@@ -36,6 +36,23 @@ namespace ProjetSessionHL.Controllers
             return View("Recherche", model);
         }
 
+        [Route("/Enfant/Filtrer")]
+        public IActionResult Filtrer(CritereRechercheViewModel criteres)
+        {
+            IEnumerable<Enfant> donnees = _baseDeDonnees.Enfants;
+
+            if (criteres.EstJeuxValorant != false)
+            {
+                donnees.Where(d => d.IdParent == 1);
+            }
+
+            var model = new PageRechercheViewModel();
+            model.Criteres = criteres;
+            model.Resultat = donnees.ToList();
+
+            return View("Recherche", model);
+        }
+
         [Route("/Enfant/Detail/{id}")]
         [Route("/Enfant/{id}")]
         [Route("/{id}")]
