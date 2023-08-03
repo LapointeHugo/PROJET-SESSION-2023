@@ -24,7 +24,7 @@
             <p>SEARCH <a style="color: rgb(1,180,255)">FORM</a></p>
         </div>
         <div id="formRecherche">
-            <form action="Recherche" method="post">
+            <form asp-controller="Enfant" asp-action="Filtrer" method="get">
                 <div id="selectionJeux" class="" style="text-align: center">
                     @if (@Model.Criteres.EstJeuxValorant)
                     {
@@ -105,7 +105,7 @@
                             {
                                 if (@Model.Criteres.Region == item)
                                 {
-                                    <option selected>@item</option>
+                                    <option selected value="">@item</option>
                                 }
                                 else
                                 {
