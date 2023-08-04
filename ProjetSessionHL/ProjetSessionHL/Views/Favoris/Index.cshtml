@@ -33,7 +33,13 @@
                     <p class="titreEquipe">@(item.Nom)</p>
                     <p class="infos">Game : <a style="color: rgb(1,180,255)">@(item.Parent.Nom)</a></p>
                     <p class="infos">Region : <a style="color: rgb(1,180,255)">@(item.Region)</a></p>
-                    <p class="lien" style="margin-top: 30px">VIEW TEAM<a><i class="fas fa-trash-alt fa-sm icon" style="color: #ffffff; margin-left: 20px;"></i></a></p>
+                    <p class="lien" style="margin-top: 30px">
+                        VIEW TEAM
+                        <form asp-controller="Favoris" asp-action="SupprimerUnEnfant" method="get">
+                            <input type="hidden" name="id" value="@(item.Id)" />
+                            <button type="submit"><i class="fas fa-trash-alt fa-sm icon" style="color: #ffffff; margin-left: 20px;"></i></button>
+                        </form>
+                    </p>
                    
                 </div>
                 <div class="col-4">

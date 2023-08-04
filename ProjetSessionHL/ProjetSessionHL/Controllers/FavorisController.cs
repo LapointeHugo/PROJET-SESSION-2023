@@ -22,7 +22,7 @@ namespace ProjetSessionHL.Controllers
                 enfantsIDs = new List<int>();
             }
 
-            var enfantsDeLaBD = _baseDeDonnees.Enfants.Where(e => enfantsIDs.Contains(e.Id)).ToList();
+            var enfantsDeLaBD = _baseDeDonnees.Enfants.ToList();
 
             return View(enfantsDeLaBD);
         }
@@ -35,16 +35,22 @@ namespace ProjetSessionHL.Controllers
                 enfantsIDs = new List<int>();
             }
 
-            //foreach (var item in enfantsIDs)
-            //{
-            //    if (id != item.Id)
-            //    {
-            //        enfantsIDs.Add(id);
-            //    }
-            //}
+            int score = 0;
+            for (int i = 0; i < enfantsIDs.Count; i++)
+            {
+                if (enfantsIDs[i] == id)
+                {
+                    score++;
+                }
+            }
 
-            //Sauvegarder la liste modifier dans la session
-           
+            if (score == 0) 
+            { 
+                enfantsIDs.Add(id);
+            }
+
+
+
             return View("Index");
         }
 

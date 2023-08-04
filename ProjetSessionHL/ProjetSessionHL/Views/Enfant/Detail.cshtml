@@ -39,7 +39,10 @@
                 <div class="col-2">
                 </div>
                 <div class="col-4">
-                    <button onclick="location.href='@Url.Action("AjouterUnEnfant", "Favoris")'">LIKE</button>
+                    <form asp-controller="Favoris" asp-action="AjouterUnEnfant" method="get">
+                        <input type="hidden" name="id" value="@(Model.Id)" />           
+                        <button type="submit">LIKE</button>                   
+                    </form>
                 </div>
             </div>
             <div class="row justify-content-around align-items-center" style="height: 350px;">

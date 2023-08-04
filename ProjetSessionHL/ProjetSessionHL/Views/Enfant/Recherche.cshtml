@@ -70,17 +70,9 @@
                     <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
                         <p class="nomChamp" style="margin-bottom: 0px">Creation :</p>
                         <select class="details" name="Creation">
-                            <option>All</option>
-                            @for (int index = 2023; index >= 2000; index--)
+                            @foreach (var creation in Model.Criteres.AnneeCreation)
                             {
-                                if (@Model.Criteres.Creation == index)
-                                {
-                                    <option selected>@index</option>
-                                }
-                                else
-                                {
-                                    <option>@index</option>
-                                }
+                                <option selected="@(Model.Criteres.Creation.ToString() == creation ? "selected" : "") " value="@creation">@creation</option>
                             }
                         </select>
                     </div>
@@ -101,16 +93,9 @@
                     <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
                         <p class="nomChamp" style="margin-bottom: 0px">Region :</p>
                         <select class="details" name="Region">
-                            @foreach (string item in Model.Criteres.ChoixRegion)
+                            @foreach (var region in Model.Criteres.ChoixRegion)
                             {
-                                if (@Model.Criteres.Region == item)
-                                {
-                                    <option selected value="">@item</option>
-                                }
-                                else
-                                {
-                                    <option>@item</option>
-                                }
+                                <option selected="@(Model.Criteres.Region == region ? "selected" : "") " value="@region">@region</option>
                             }
                         </select>
                     </div>
@@ -118,7 +103,7 @@
                 <div class="row justify-content-center" style="margin-top: 50px; padding: 0px; text-align: center; margin-bottom: 40px; padding-bottom: 30px;">
                     <div class="row justify-content-center">
                         <input type="reset" class="btnReset col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button type="button" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12" onclick="location.href='@Url.Action("Filtrer", "Enfant")'">SEARCH</button>
+                        <button type="submit" class="btnSearch col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">SEARCH</button>
                     </div>
                 </div>
             </form>
@@ -133,10 +118,19 @@
             <div class="row" style="height: auto">
                 @foreach (var item in @Model.Resultat)
                 {
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">                  
-                        <img src="/images/@(item.ImgFile)" class="imageLogo">
-                        <p class="titreEquipe">@(item.Nom)</p>                                    
-                    </div>
+                    if (Model.Resultat.Count == 0)
+                    {
+                        <div class="col-auto result" style="color:white;">
+                             <p>Aucune equipe a ete trouver</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">                  
+                            <img src="/images/@(item.ImgFile)" class="imageLogo">
+                            <p class="titreEquipe">@(item.Nom)</p>                                    
+                        </div>
+                    }
                 }
             </div>
         </div>
