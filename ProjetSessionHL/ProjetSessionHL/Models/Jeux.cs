@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace ProjetSessionHL.Models
 {
-    public class Parent
+    public class Jeux
     {
         [Key]
         public int Id { get; set; }
@@ -19,15 +20,7 @@ namespace ProjetSessionHL.Models
 
         public string ImgFile { get; set; }
 
-        public string ImgFileEquipe { get; set; }
 
-        public int Courses { get; set; }
-
-        public int Lessons { get; set; }
-
-        public int Coaches { get; set; }
-        
-
-        public ICollection<Enfant> Enfants { get; set; }
+        public ICollection<Entraineur> Entraineurs { get; set; }
     }
 }
