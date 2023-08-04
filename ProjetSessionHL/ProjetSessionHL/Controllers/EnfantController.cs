@@ -39,13 +39,99 @@ namespace ProjetSessionHL.Controllers
         [Route("/Enfant/Filtrer")]
         public IActionResult Filtrer(CritereRechercheViewModel criteres)
         {
-            IEnumerable<Enfant> donnees = _baseDeDonnees.Enfants;
+            IEnumerable<Enfant> donneesOrigine = _baseDeDonnees.Enfants;
+            var donnees = donneesOrigine.ToList();
 
-            
+            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstValorant)
+            //{
+            //    var equipe = donnees[i];
+
+            //    if (criteres.EstJeuxValorant == false && equipe.IdParent == 1)
+            //    {
+            //        donnees.RemoveAt(equipe.Id - 1);
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstLeagueofLegends)
+            //{
+            //    var equipe = donnees[i];
+
+            //    if (criteres.EstJeuxLeagueofLegends == false && equipe.IdParent == 2)
+            //    {
+            //        donnees.RemoveAt(equipe.Id - 1);
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstCsgo)
+            //{
+            //    var equipe = donnees[i];
+
+            //    if (criteres.EstJeuxCsgo == false && equipe.IdParent == 3)
+            //    {
+            //        donnees.RemoveAt(equipe.Id - 1);
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)     // Le code individuelle Marche! (Creation)
+            //{
+            //    var equipe = donnees[i];
+            //    if (criteres.Creation != equipe.AnneCreation)
+            //    { 
+            //        if (criteres.Creation == 0)
+            //        {
+            //            continue;
+            //        }
+            //        else
+            //        {
+            //            donnees.RemoveAt(equipe.Id - 1);
+            //        }
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)     // Le code individuelle Marche! (Region)
+            //{
+            //    var equipe = donnees[i];
+            //    if (criteres.Region != equipe.Region)
+            //    {
+            //        if (criteres.Region == "All")
+            //        {
+            //            continue;
+            //        }
+            //        else
+            //        {
+            //            donnees.RemoveAt(equipe.Id - 1);
+            //        }
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (Nom) *Reste majuscules minuscules*
+            //{
+            //    var equipe = donnees[i];
+            //    if (criteres.Nom != equipe.Nom)
+            //    {
+            //        if (criteres.Nom == null || criteres.Nom == "")
+            //        {
+            //            continue;
+            //        }
+            //        else
+            //        {
+            //            donnees.RemoveAt(equipe.Id - 1);
+            //        }
+            //    }
+            //}
+
+            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (PossedeSite) 
+            //{
+            //    var equipe = donnees[i];
+            //    if (criteres.PossedeSite != equipe.PossedeSite)
+            //    {
+            //        donnees.RemoveAt(equipe.Id - 1);
+            //    }
+            //}
 
             var model = new PageRechercheViewModel();
             model.Criteres = criteres;
-            model.Resultat = donnees.Take(0).ToList();
+            model.Resultat = donnees.ToList();
 
             return View("Recherche", model);
         }
