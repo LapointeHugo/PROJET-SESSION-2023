@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using System;
 using ProjetSessionHL.Models;
+using Microsoft.EntityFrameworkCore;
+using ProjetSessionHL.Data;
 
 var builder = WebApplication.CreateBuilder(args); // Crée une web app avec les paramètres envoyés
 builder.Services.AddControllersWithViews(); // Permet MVC
 builder.Services.AddRazorPages(); // Permet utilisation de Razor
 
 builder.Services.AddSingleton<BaseDeDonnees>(); // Permet l'utilisation du Singleton
+builder.Services.AddDbContext<ProjetSessionDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(option => { option.IdleTimeout = TimeSpan.FromMinutes(20); });
