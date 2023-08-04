@@ -41,14 +41,11 @@ namespace ProjetSessionHL.Controllers
         {
             IEnumerable<Enfant> donnees = _baseDeDonnees.Enfants;
 
-            if (criteres.EstJeuxValorant != false)
-            {
-                donnees.Where(d => d.IdParent == 1);
-            }
+            
 
             var model = new PageRechercheViewModel();
             model.Criteres = criteres;
-            model.Resultat = donnees.ToList();
+            model.Resultat = donnees.Take(0).ToList();
 
             return View("Recherche", model);
         }
@@ -69,9 +66,9 @@ namespace ProjetSessionHL.Controllers
             }
         }
 
-        //[Route("/Enfant/Detail/{string}")]
-        //[Route("/Enfant/{string}")]
-        //[Route("/{string}")]
+        //[Route("/Enfant/Detail/{nom}")]
+        //[Route("/Enfant/{nom}")]
+        //[Route("/{nom}")]
         //public IActionResult DetailParNom(string nom)
         //{
         //    var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Nom == nom).SingleOrDefault();
