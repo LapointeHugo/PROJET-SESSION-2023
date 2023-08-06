@@ -39,51 +39,45 @@ namespace ProjetSessionHL.Controllers
         [Route("/Enfant/Filtrer")]
         public IActionResult Filtrer(CritereRechercheViewModel criteres)
         {
-            IEnumerable<Enfant> donneesOrigine = _baseDeDonnees.Enfants;
-            var donnees = donneesOrigine.ToList();
+            IEnumerable<Enfant> donnees = _baseDeDonnees.Enfants;;
 
-            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstValorant)
-            //{
-            //    var equipe = donnees[i];
+            if (criteres.EstJeuxValorant == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 1);
+            }
 
-            //    if (criteres.EstJeuxValorant == false && equipe.IdParent == 1)
-            //    {
-            //        donnees.RemoveAt(equipe.Id - 1);
-            //    }
-            //}
+            if (criteres.EstJeuxLeagueofLegends == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 2);
+            }
 
-            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstLeagueofLegends)
-            //{
-            //    var equipe = donnees[i];
+            if (criteres.EstJeuxCsgo == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 3);
+            }
 
-            //    if (criteres.EstJeuxLeagueofLegends == false && equipe.IdParent == 2)
-            //    {
-            //        donnees.RemoveAt(equipe.Id - 1);
-            //    }
-            //}
+            if (criteres.PossedeSite == false)
+            {
+                donnees = donnees.Where(e => e.PossedeSite == false);
+            }
+            else
+            {
+                donnees = donnees.Where(e => e.PossedeSite);
+            }
 
-            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (EstCsgo)
-            //{
-            //    var equipe = donnees[i];
-
-            //    if (criteres.EstJeuxCsgo == false && equipe.IdParent == 3)
-            //    {
-            //        donnees.RemoveAt(equipe.Id - 1);
-            //    }
-            //}
 
             //for (var i = donnees.Count() - 1; i >= 0; i--)     // Le code individuelle Marche! (Creation)
             //{
             //    var equipe = donnees[i];
             //    if (criteres.Creation != equipe.AnneCreation)
-            //    { 
+            //    {
             //        if (criteres.Creation == 0)
             //        {
             //            continue;
             //        }
             //        else
             //        {
-            //            donnees.RemoveAt(equipe.Id - 1);
+            //            donnees = donnees.Where(e => e.AnneCreation != criteres.Creation);
             //        }
             //    }
             //}
@@ -117,15 +111,6 @@ namespace ProjetSessionHL.Controllers
             //        {
             //            donnees.RemoveAt(equipe.Id - 1);
             //        }
-            //    }
-            //}
-
-            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (PossedeSite) 
-            //{
-            //    var equipe = donnees[i];
-            //    if (criteres.PossedeSite != equipe.PossedeSite)
-            //    {
-            //        donnees.RemoveAt(equipe.Id - 1);
             //    }
             //}
 
