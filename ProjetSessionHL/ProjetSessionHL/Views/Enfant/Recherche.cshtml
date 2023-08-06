@@ -113,25 +113,18 @@
     <hr class="solid" style="margin-top: 0px">
 
     <div id="imageFondResult">
-        <p id="sousTitreResultat">LIST OF <a style="color: rgb(1,180,255)">RESULTS</a><br>(<a style="color: rgb(1,180,255)">@Model.Resultat.Count</a> results)</p>
+        @if (Model.Resultat.Count == 0)
+        {
+            <p id="sousTitreResultat"><a style="color: rgb(1,180,255)">AUCUNE</a> EQUIPE A ETE TROUVER</p>
+        }
+        else
+        {
+            <p id="sousTitreResultat">LIST OF <a style="color: rgb(1,180,255)">RESULTS</a><br>(<a style="color: rgb(1,180,255)">@Model.Resultat.Count</a> results)</p>
+        }
+
         <div id="listeResultat" class="container">
             <div class="row" style="height: auto">
-                @foreach (var item in @Model.Resultat)
-                {
-                    if (Model.Resultat.Count == 0)
-                    {
-                        <div class="col-auto result" style="color:white;">
-                             <p>Aucune equipe a ete trouver</p>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6 result">                  
-                            <img src="/images/@(item.ImgFile)" class="imageLogo">
-                            <p class="titreEquipe">@(item.Nom)</p>                                    
-                        </div>
-                    }
-                }
+                <partial name="_ResultsPartial" for="@Model" />
             </div>
         </div>
     </div>

@@ -62,13 +62,13 @@ namespace ProjetSessionHL.Controllers
                 enfantsIDs = new List<int>();
             }
 
-            //foreach (var item in enfantsIDs)
-            //{
-            //    if (id == item.Id)
-            //    {
-            //        enfantsIDs.Remove(id);
-            //    }
-            //}
+            for (int i = 0; i < enfantsIDs.Count; i++)
+            {
+                if (id == enfantsIDs[i])
+                {
+                    enfantsIDs.Remove(id);
+                }
+            }
 
             //Sauvegarder la liste modifier dans la session
 
