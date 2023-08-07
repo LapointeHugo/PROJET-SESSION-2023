@@ -10,6 +10,11 @@ namespace ProjetSessionHL.Models
 
         public string ImgFile { get; set; }
 
+        [Display(Name = "Alias")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} requis")]
+        [MaxLength(30, ErrorMessage = "{1} caracteres maximum!")]
+        public string Alias { get; set; }
+
         [Display(Name = "Prénom")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} requis")]
         [MaxLength(30, ErrorMessage = "{1} caracteres maximum!")]

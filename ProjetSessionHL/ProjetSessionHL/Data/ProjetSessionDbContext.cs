@@ -18,7 +18,7 @@ namespace ProjetSessionHL.Data
             base.OnModelCreating(modelBuilder);
 
             //Générer des données de départ
-            //modelBuilder.GenerateData();
+            modelBuilder.GenerateData();
         }
     }
 }
