@@ -59,24 +59,24 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: ParentController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+
+            return View(parent);
         }
 
         // POST: ParentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+        public ActionResult Edit(int id, Parent parent)
+        {                       
+            var parents = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+            _baseDeDonnees.Parents.Remove(parents);
+            _baseDeDonnees.Parents.Add(parent);
+            _baseDeDonnees.SaveChanges();
+
+            return RedirectToAction("Index");          
         }
 
         // GET: ParentController/Delete/5
