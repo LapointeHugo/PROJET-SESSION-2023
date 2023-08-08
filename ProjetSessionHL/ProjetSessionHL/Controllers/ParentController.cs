@@ -25,16 +25,15 @@ namespace ProjetSessionHL.Controllers
         // GET: ParentController/Details/5
         public ActionResult Details(int id)
         {
-            //var parentsRecherché = _baseDeDonnees.Parents.Where(e => e.Id == id).SingleOrDefault();
-            //if (parentsRecherché == null)
-            //{
-            //    return View("NonTrouve");
-            //}
-            //else
-            //{
-            //    return View("Details", parentsRecherché);
-            //}
-            return View();
+            var parentsRecherché = _baseDeDonnees.Parents.Where(e => e.Id == id).SingleOrDefault();
+            if (parentsRecherché == null)
+            {
+                return View("NonTrouve");
+            }
+            else
+            {
+                return View("Details", parentsRecherché);
+            }
         }
 
         // GET: ParentController/Create
