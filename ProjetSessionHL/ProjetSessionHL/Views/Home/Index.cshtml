@@ -1,4 +1,4 @@
-﻿@model List<Parent>
+﻿@model IEnumerable<ProjetSessionHL.Models.Parent>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div id="sectionPro" class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height: 100%; padding: 0px; text-align: center;">
                                     <img id="imagePro" class="mb-3" src="/images/@(item.ImgFileEquipe)">
-                                    <p><button id="boutonPro" style="margin: 0;">VIEW ALL <a style="color: rgb(1, 180, 255)">@(item.Enfants.Count) PRO</a> TEAMS</button></p>
+                                    <p><button id="boutonPro" style="margin: 0;">VIEW ALL <a style="color: rgb(1, 180, 255)"> PRO</a> TEAMS</button></p>
                                 </div>
                             </div>
                         </div>

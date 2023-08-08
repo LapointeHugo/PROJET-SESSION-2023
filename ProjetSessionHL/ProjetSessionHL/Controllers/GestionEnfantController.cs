@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetSessionHL.Data;
 using ProjetSessionHL.Models;
 using System.Linq;
 
@@ -7,9 +8,9 @@ namespace ProjetSessionHL.Controllers
 {
     public class GestionEnfantController : Controller
     {
-        private BaseDeDonnees _baseDeDonnees { get; set; }
+        private readonly ProjetSessionDbContext _baseDeDonnees;
 
-        public GestionEnfantController(BaseDeDonnees baseDeDonnees)
+        public GestionEnfantController(ProjetSessionDbContext baseDeDonnees)
         {
             _baseDeDonnees = baseDeDonnees;
         }

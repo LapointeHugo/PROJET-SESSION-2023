@@ -17,7 +17,7 @@ namespace ProjetSessionHL.Models
         [MaxLength(30, ErrorMessage = "{1} caracteres maximum!")]
         public string Nom { get; set; }
 
-        [MaxLength(200, ErrorMessage = "{1} caracteres maximum!")]
+        [MaxLength(1000, ErrorMessage = "{1} caracteres maximum!")]
         public string Description { get; set; }
 
         [Display(Name = "Location")]

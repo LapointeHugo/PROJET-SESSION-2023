@@ -15,7 +15,7 @@ namespace ProjetSessionHL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nom = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 1000, nullable: false),
                     ImgFile = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -30,7 +30,7 @@ namespace ProjetSessionHL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nom = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 1000, nullable: false),
                     ImgFile = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImgFileEquipe = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Courses = table.Column<int>(type: "int", nullable: false),
@@ -73,7 +73,7 @@ namespace ProjetSessionHL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImgFile = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nom = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 1000, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PossedeSite = table.Column<bool>(type: "bit", nullable: false),
                     Site = table.Column<string>(type: "nvarchar(max)", nullable: false),

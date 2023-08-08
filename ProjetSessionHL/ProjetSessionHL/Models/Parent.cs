@@ -14,7 +14,7 @@ namespace ProjetSessionHL.Models
 
         [Display(Name = "Description")]
         [Required]
-        [MaxLength(200, ErrorMessage = "{1} caracteres maximum!")]
+        [MaxLength(1000, ErrorMessage = "{1} caracteres maximum!")]
         public string Description { get; set; }
 
         public string ImgFile { get; set; }
