@@ -45,16 +45,17 @@ namespace ProjetSessionHL.Controllers
         // POST: ParentController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Parent parent)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _baseDeDonnees.Parents.Add(parent);
+                _baseDeDonnees.SaveChanges();
+                TempData["Success"] = $"{parent.Nom} subjet added";
+                return this.RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return this.View(parent);
         }
 
         // GET: ParentController/Edit/5
