@@ -18,12 +18,22 @@ namespace ProjetSessionHL.Controllers
         [Route("/Parent/Index")]
         public ActionResult Index()
         {
-            return View("Index");
+            //List<Parent> objList = _baseDeDonnees.Parents.ToList();
+            return View();
         }
 
         // GET: ParentController/Details/5
         public ActionResult Details(int id)
         {
+            //var parentsRecherché = _baseDeDonnees.Parents.Where(e => e.Id == id).SingleOrDefault();
+            //if (parentsRecherché == null)
+            //{
+            //    return View("NonTrouve");
+            //}
+            //else
+            //{
+            //    return View("Details", parentsRecherché);
+            //}
             return View();
         }
 
