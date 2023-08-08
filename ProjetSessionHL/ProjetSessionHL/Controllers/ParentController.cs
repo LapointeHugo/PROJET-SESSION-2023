@@ -18,8 +18,8 @@ namespace ProjetSessionHL.Controllers
         [Route("/Parent/Index")]
         public ActionResult Index()
         {
-            //List<Parent> objList = _baseDeDonnees.Parents.ToList();
-            return View();
+            List<Parent> objList = _baseDeDonnees.Parents.ToList();
+            return View(objList);
         }
 
         // GET: ParentController/Details/5
