@@ -46,16 +46,17 @@ namespace ProjetSessionHL.Controllers
         // POST: GestionEnfantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Enfant enfant)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _baseDeDonnees.Enfants.Add(enfant);
+                _baseDeDonnees.SaveChanges();
+                TempData["Success"] = $"{enfant.Nom} subjet added";
+                return this.RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return this.View(enfant);
         }
 
         // GET: GestionEnfantController/Edit/5
