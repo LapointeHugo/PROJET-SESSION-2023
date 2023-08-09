@@ -19,7 +19,8 @@ namespace ProjetSessionHL.Controllers
         [Route("/GestionEnfant/Index")]
         public ActionResult Index()
         {
-            return View("Index");
+            List<Enfant> objList = _baseDeDonnees.Enfants.ToList();
+            return View(objList);
         }
 
         // GET: GestionEnfantController/Details/5
