@@ -26,7 +26,15 @@ namespace ProjetSessionHL.Controllers
         // GET: GestionEnfantController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Id == id).SingleOrDefault();
+            if (enfantsRecherché == null)
+            {
+                return View("NonTrouve");
+            }
+            else
+            {
+                return View("Details", enfantsRecherché);
+            }
         }
 
         // GET: GestionEnfantController/Create
