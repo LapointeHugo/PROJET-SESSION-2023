@@ -82,7 +82,9 @@ namespace ProjetSessionHL.Controllers
         // GET: ParentController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+
+            return View(parent);
         }
 
         // POST: ParentController/Delete/5
@@ -90,7 +92,10 @@ namespace ProjetSessionHL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+            _baseDeDonnees.Parents.Remove(parent);
+            _baseDeDonnees.SaveChanges();
+            return RedirectToAction("Index"); 
         }
     }
 }
