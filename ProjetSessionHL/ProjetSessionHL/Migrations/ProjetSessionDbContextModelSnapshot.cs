@@ -76,7 +76,7 @@ namespace ProjetSessionHL.Migrations
 
                     b.HasIndex("IdParent");
 
-                    b.ToTable("Enfants");
+                    b.ToTable("Enfants", (string)null);
 
                     b.HasData(
                         new
@@ -298,7 +298,7 @@ namespace ProjetSessionHL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Parents");
+                    b.ToTable("Parents", (string)null);
 
                     b.HasData(
                         new

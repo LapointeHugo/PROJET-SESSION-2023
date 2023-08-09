@@ -45,43 +45,46 @@ namespace ProjetSessionHL.Controllers
         // POST: ParentController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Parent parent)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _baseDeDonnees.Parents.Add(parent);
+                _baseDeDonnees.SaveChanges();
+                TempData["Success"] = $"{parent.Nom} subjet added";
+                return this.RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return this.View(parent);
         }
 
         // GET: ParentController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+
+            return View(parent);
         }
 
         // POST: ParentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+        public ActionResult Edit(int id, Parent parent)
+        {                       
+            var parents = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+            _baseDeDonnees.Parents.Remove(parents);
+            _baseDeDonnees.Parents.Add(parent);
+            _baseDeDonnees.SaveChanges();
+
+            return RedirectToAction("Index");          
         }
 
         // GET: ParentController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+
+            return View(parent);
         }
 
         // POST: ParentController/Delete/5
@@ -89,7 +92,10 @@ namespace ProjetSessionHL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            return View();
+            var parent = _baseDeDonnees.Parents.Where(p => p.Id == id).FirstOrDefault();
+            _baseDeDonnees.Parents.Remove(parent);
+            _baseDeDonnees.SaveChanges();
+            return RedirectToAction("Index"); 
         }
     }
 }

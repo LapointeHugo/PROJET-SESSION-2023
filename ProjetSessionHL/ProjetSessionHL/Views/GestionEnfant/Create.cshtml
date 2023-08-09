@@ -1,0 +1,86 @@
+﻿@model ProjetSessionHL.Models.Enfant
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color: white; margin-top: 80px">Create</h1>
+
+<h4 style="color: white">Enfant</h4>
+<hr />
+<div class="row" style="color: white">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ImgFile" class="control-label"></label>
+                <input asp-for="ImgFile" class="form-control" />
+                <span asp-validation-for="ImgFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PossedeSite" /> @Html.DisplayNameFor(model => model.PossedeSite)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Site" class="control-label"></label>
+                <input asp-for="Site" class="form-control" />
+                <span asp-validation-for="Site" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnneCreation" class="control-label"></label>
+                <input asp-for="AnneCreation" class="form-control" />
+                <span asp-validation-for="AnneCreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Region" class="control-label"></label>
+                <input asp-for="Region" class="form-control" />
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Abbreviation" class="control-label"></label>
+                <input asp-for="Abbreviation" class="form-control" />
+                <span asp-validation-for="Abbreviation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontantGagnee" class="control-label"></label>
+                <input asp-for="MontantGagnee" class="form-control" />
+                <span asp-validation-for="MontantGagnee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdParent" class="control-label"></label>
+                <select asp-for="IdParent" class ="form-control" asp-items="ViewBag.IdParent"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-bottom: 80px">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section NomPage {
+        CREATE TEAM
+    }
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -19,13 +19,22 @@ namespace ProjetSessionHL.Controllers
         [Route("/GestionEnfant/Index")]
         public ActionResult Index()
         {
-            return View("Index");
+            List<Enfant> objList = _baseDeDonnees.Enfants.ToList();
+            return View(objList);
         }
 
         // GET: GestionEnfantController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Id == id).SingleOrDefault();
+            if (enfantsRecherché == null)
+            {
+                return View("NonTrouve");
+            }
+            else
+            {
+                return View("Details", enfantsRecherché);
+            }
         }
 
         // GET: GestionEnfantController/Create
@@ -37,37 +46,38 @@ namespace ProjetSessionHL.Controllers
         // POST: GestionEnfantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Enfant enfant)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _baseDeDonnees.Enfants.Add(enfant);
+                _baseDeDonnees.SaveChanges();
+                TempData["Success"] = $"{enfant.Nom} subjet added";
+                return this.RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return this.View(enfant);
         }
 
         // GET: GestionEnfantController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            var enfant = _baseDeDonnees.Enfants.Where(p => p.Id == id).FirstOrDefault();
+
+            return View(enfant);
         }
 
         // POST: GestionEnfantController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Enfant enfant)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var enfants = _baseDeDonnees.Enfants.Where(p => p.Id == id).FirstOrDefault();
+            _baseDeDonnees.Enfants.Remove(enfants);
+            _baseDeDonnees.Enfants.Add(enfants);
+            _baseDeDonnees.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: GestionEnfantController/Delete/5
