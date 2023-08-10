@@ -16,6 +16,16 @@ body {
     padding-right: 15px;
 }
 
+.manage {
+    margin: 0px;
+    text-decoration: none;
+    color: rgb(94, 94, 94);
+}
+
+.manage:hover {
+    color: rgb(1, 180, 255);
+}
+
 #lien-menu {
     padding-left: 20px;
     padding-right: 20px;
