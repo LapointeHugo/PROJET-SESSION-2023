@@ -33,7 +33,9 @@
                         <a asp-controller="GestionEnfant" asp-action="Index" class="manage">MANAGE TEAMS</a>
                     </li>
                     <span id="language" class="nav-text">
-                        <p id="langue" style="margin: 0px">EN</p>
+                        <div class="col-md-2 text-right">
+                            @await Html.PartialAsync("_SelectLanguage")
+                        </div>
                     </span>
                     <span id="language" class="nav-text">
                         <p id="langue" style="margin: 0px">LOG<a style="color: rgb(1, 180, 255)">IN</a></p>

@@ -3,9 +3,35 @@ using System;
 using ProjetSessionHL.Models;
 using Microsoft.EntityFrameworkCore;
 using ProjetSessionHL.Data;
+using System.Globalization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args); // Crée une web app avec les paramètres envoyés
-builder.Services.AddControllersWithViews(); // Permet MVC
+
+// Injecter la localisation ICI
+#region Localizer configuration
+CultureInfo[] supportedCultures = new[]
+{
+    new CultureInfo("en-US"),
+    new CultureInfo("fr-CA")
+};
+#endregion
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+builder.Services.AddControllersWithViews()  // Permet MVC
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+
 builder.Services.AddRazorPages(); // Permet utilisation de Razor
 
 builder.Services.AddSingleton<BaseDeDonnees>(); // Permet l'utilisation du Singleton
@@ -16,6 +42,10 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(option => { option.IdleTimeout = TimeSpan.FromMinutes(20); });
 
 var app = builder.Build();
+
+var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(locOptions.Value);
+
 
 if (app.Environment.IsDevelopment())
 {
