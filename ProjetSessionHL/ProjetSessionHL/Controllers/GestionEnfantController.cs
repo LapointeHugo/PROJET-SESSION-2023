@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using ProjetSessionHL.Data;
 using ProjetSessionHL.Models;
 using System.Linq;
@@ -9,10 +11,14 @@ namespace ProjetSessionHL.Controllers
     public class GestionEnfantController : Controller
     {
         private readonly ProjetSessionDbContext _baseDeDonnees;
+        private readonly ILogger<GestionEnfantController> _logger;
+        private readonly IStringLocalizer<GestionEnfantController> _localizer;
 
-        public GestionEnfantController(ProjetSessionDbContext baseDeDonnees)
+        public GestionEnfantController(ProjetSessionDbContext baseDeDonnees, ILogger<GestionEnfantController> logger, IStringLocalizer<GestionEnfantController> localizer)
         {
             _baseDeDonnees = baseDeDonnees;
+            _logger = logger;
+            _localizer = localizer;
         }
 
         // GET: GestionEnfantController
@@ -111,6 +117,21 @@ namespace ProjetSessionHL.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            var cookie = CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture));
+            var name = CookieRequestCultureProvider.DefaultCookieName;
+
+            Response.Cookies.Append(name, cookie, new CookieOptions
+            {
+                Path = "/",
+                Expires = DateTimeOffset.UtcNow.AddYears(1),
+            });
+
+            return LocalRedirect(returnUrl);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 using ProjetSessionHL.Data;
 using ProjetSessionHL.Models;
 using ProjetSessionHL.ViewModels;
@@ -8,10 +11,14 @@ namespace ProjetSessionHL.Controllers
     public class ParentController : Controller
     {
         private readonly ProjetSessionDbContext _baseDeDonnees;
+        private readonly ILogger<ParentController> _logger;
+        private readonly IStringLocalizer<ParentController> _localizer;
 
-        public ParentController(ProjetSessionDbContext baseDeDonnees)
+        public ParentController(ProjetSessionDbContext baseDeDonnees, ILogger<ParentController> logger, IStringLocalizer<ParentController> localizer)
         {
             _baseDeDonnees = baseDeDonnees;
+            _logger = logger;
+            _localizer = localizer;
         }
 
         // GET: ParentController
@@ -96,6 +103,21 @@ namespace ProjetSessionHL.Controllers
             _baseDeDonnees.Parents.Remove(parent);
             _baseDeDonnees.SaveChanges();
             return RedirectToAction("Index"); 
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            var cookie = CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture));
+            var name = CookieRequestCultureProvider.DefaultCookieName;
+
+            Response.Cookies.Append(name, cookie, new CookieOptions
+            {
+                Path = "/",
+                Expires = DateTimeOffset.UtcNow.AddYears(1),
+            });
+
+            return LocalRedirect(returnUrl);
         }
     }
 }
