@@ -18,7 +18,7 @@ CultureInfo[] supportedCultures = new[]
     new CultureInfo("fr-CA")
 };
 #endregion
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddLocalization(options => options.ResourcesPath = "Ressources");
 
 builder.Services.AddControllersWithViews()  // Permet MVC
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)

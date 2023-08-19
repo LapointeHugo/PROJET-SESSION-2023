@@ -9,12 +9,12 @@ namespace ProjetSessionHL.Models
 
         [Display(Name = "Name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "ValidationRequired")]
-        [MaxLength(30, ErrorMessage = "{1} caracteres maximum!")]
+        [MaxLength(30, ErrorMessage = "MaxCaractersValidation")]
         public string Nom { get; set; }
 
         [Display(Name = "Description")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "ValidationRequired")]
-        [MaxLength(1000, ErrorMessage = "{1} caracteres maximum!")]
+        [MaxLength(1000, ErrorMessage = "MaxCaractersValidation")]
         public string Description { get; set; }
 
         [Display(Name = "Game Image")]

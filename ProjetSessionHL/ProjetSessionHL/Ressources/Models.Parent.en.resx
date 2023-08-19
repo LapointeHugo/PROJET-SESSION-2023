@@ -117,20 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cours" xml:space="preserve">
+  <data name="Coaches" xml:space="preserve">
+    <value>Coaches</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
     <value>Courses</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="Entraîneur" xml:space="preserve">
-    <value>Coaches</value>
-  </data>
-  <data name="Image Jeux" xml:space="preserve">
+  <data name="Game Image" xml:space="preserve">
     <value>Game Image</value>
-  </data>
-  <data name="Image Équipe" xml:space="preserve">
-    <value>Team Image</value>
   </data>
   <data name="Lessons" xml:space="preserve">
     <value>Lessons</value>
@@ -138,10 +135,13 @@
   <data name="MaxCaractersValidation" xml:space="preserve">
     <value>{0} can only have a maximum of {1} caracters</value>
   </data>
-  <data name="Nom" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="RequiredValidation" xml:space="preserve">
     <value>{0} is required</value>
+  </data>
+  <data name="Team Image" xml:space="preserve">
+    <value>Team Image</value>
   </data>
 </root>

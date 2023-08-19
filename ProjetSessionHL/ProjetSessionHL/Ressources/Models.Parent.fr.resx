@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Coaches" xml:space="preserve">
-    <value>Entraîneur</value>
+    <value>Entraîneurs</value>
   </data>
   <data name="Courses" xml:space="preserve">
     <value>Cours</value>
@@ -138,10 +138,10 @@
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="RequiredValidation" xml:space="preserve">
-    <value>{0} est obligatoire</value>
-  </data>
   <data name="Team Image" xml:space="preserve">
     <value>Image Équipe</value>
+  </data>
+  <data name="ValidationRequired" xml:space="preserve">
+    <value>{0} est obligatoire</value>
   </data>
 </root>

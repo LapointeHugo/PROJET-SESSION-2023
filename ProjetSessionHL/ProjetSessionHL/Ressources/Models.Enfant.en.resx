@@ -117,59 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Abbréviation" xml:space="preserve">
+  <data name="Abbreviation" xml:space="preserve">
     <value>Abbreviation</value>
-  </data>
-  <data name="Année de Création" xml:space="preserve">
-    <value>Year of Creation</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="Location" xml:space="preserve">
-    <value>Description
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Location</value>
+  <data name="Has Website" xml:space="preserve">
+    <value>Has Website</value>
   </data>
-  <data name="Logo Équipe" xml:space="preserve">
-    <value>Team Logo</value>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
   </data>
   <data name="MaxCaractersValidation" xml:space="preserve">
     <value>{0} can only have a maximum of {1} caracters</value>
   </data>
-  <data name="Montant Gagnée" xml:space="preserve">
-    <value>Winnings</value>
-  </data>
-  <data name="Nom" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="Parent" xml:space="preserve">
     <value>Parent</value>
   </data>
-  <data name="Possède Site" xml:space="preserve">
-    <value>Has Website</value>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="RequiredValidation" xml:space="preserve">
     <value>{0} is required</value>
   </data>
-  <data name="Région" xml:space="preserve">
-    <value>Region</value>
+  <data name="Team Logo" xml:space="preserve">
+    <value>Team Logo</value>
   </data>
-  <data name="Site" xml:space="preserve">
+  <data name="Website" xml:space="preserve">
     <value>Website</value>
+  </data>
+  <data name="Winnings" xml:space="preserve">
+    <value>Winnings</value>
+  </data>
+  <data name="Year of Creation" xml:space="preserve">
+    <value>Year of Creation</value>
   </data>
 </root>

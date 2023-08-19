@@ -141,11 +141,11 @@
   <data name="Region" xml:space="preserve">
     <value>Région</value>
   </data>
-  <data name="RequiredValidation" xml:space="preserve">
-    <value>{0} est obligatoire</value>
-  </data>
   <data name="Team Logo" xml:space="preserve">
     <value>Logo Équipe</value>
+  </data>
+  <data name="ValidationRequired" xml:space="preserve">
+    <value>{0} est obligatoire</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Site</value>
