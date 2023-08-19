@@ -22,6 +22,7 @@ namespace ProjetSessionHL.Controllers
         public IActionResult Index()
         {
             List<Parent> objList = _baseDeDonnees.Parents.ToList();
+            ViewData["Title"] = this._localizer["HomeIndexTitle"];
             return View(objList);
         }
 
