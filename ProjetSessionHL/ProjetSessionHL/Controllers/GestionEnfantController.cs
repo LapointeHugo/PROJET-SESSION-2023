@@ -69,6 +69,7 @@ namespace ProjetSessionHL.Controllers
         public ActionResult Edit(int? id)
         {
             var enfant = _baseDeDonnees.Enfants.Where(p => p.Id == id).FirstOrDefault();
+            ViewBag.IdParent = _baseDeDonnees.Parents.Count();
 
             return View(enfant);
         }
