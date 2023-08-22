@@ -1,4 +1,4 @@
-﻿@model ProjetSessionHL.Models.Enfant
+﻿@model EnfantVM
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,61 +12,61 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="@Model.Enfant.Id" />
             <div class="form-group">
-                <label asp-for="ImgFile" class="control-label"></label>
-                <input asp-for="ImgFile" class="form-control" />
-                <span asp-validation-for="ImgFile" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.ImgFile" class="control-label"></label>
+                <input asp-for="@Model.Enfant.ImgFile" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.ImgFile" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nom" class="control-label"></label>
-                <input asp-for="Nom" class="form-control" />
-                <span asp-validation-for="Nom" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Nom" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Nom" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Nom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Description" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Description" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Location" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Location" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Location" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PossedeSite" /> @Html.DisplayNameFor(model => model.PossedeSite)
+                    <input class="form-check-input" asp-for="@Model.Enfant.PossedeSite" />
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="Site" class="control-label"></label>
-                <input asp-for="Site" class="form-control" />
-                <span asp-validation-for="Site" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Site" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Site" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Site" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnneCreation" class="control-label"></label>
-                <input asp-for="AnneCreation" class="form-control" />
-                <span asp-validation-for="AnneCreation" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.AnneCreation" class="control-label"></label>
+                <input asp-for="@Model.Enfant.AnneCreation" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.AnneCreation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Region" class="control-label"></label>
-                <input asp-for="Region" class="form-control" />
-                <span asp-validation-for="Region" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Region" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Region" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Region" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Abbreviation" class="control-label"></label>
-                <input asp-for="Abbreviation" class="form-control" />
-                <span asp-validation-for="Abbreviation" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.Abbreviation" class="control-label"></label>
+                <input asp-for="@Model.Enfant.Abbreviation" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.Abbreviation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MontantGagnee" class="control-label"></label>
-                <input asp-for="MontantGagnee" class="form-control" />
-                <span asp-validation-for="MontantGagnee" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.MontantGagnee" class="control-label"></label>
+                <input asp-for="@Model.Enfant.MontantGagnee" class="form-control" />
+                <span asp-validation-for="@Model.Enfant.MontantGagnee" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdParent" class="control-label"></label>
-                <select asp-for="IdParent" class="form-control" asp-items="@ViewBag.IdParent"></select>
-                <span asp-validation-for="IdParent" class="text-danger"></span>
+                <label asp-for="@Model.Enfant.IdParent" class="control-label"></label>
+                <select asp-for="@Model.Enfant.IdParent" class="form-control" asp-items="@ViewBag.IdParent"></select>
+                <span asp-validation-for="@Model.Enfant.IdParent" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
