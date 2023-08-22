@@ -66,54 +66,21 @@ namespace ProjetSessionHL.Controllers
                 donnees = donnees.Where(e => e.PossedeSite);
             }
 
+            if (criteres.Creation != 0)
+            {
+                donnees = donnees.Where(e => e.AnneCreation == criteres.Creation);
+            }
 
-            //for (var i = donnees.Count() - 1; i >= 0; i--)     // Le code individuelle Marche! (Creation)
-            //{
-            //    var equipe = donnees[i];
-            //    if (criteres.Creation != equipe.AnneCreation)
-            //    {
-            //        if (criteres.Creation == 0)
-            //        {
-            //            continue;
-            //        }
-            //        else
-            //        {
-            //            donnees = donnees.Where(e => e.AnneCreation != criteres.Creation);
-            //        }
-            //    }
-            //}
+            if (criteres.Region != "All")
+            {
+                donnees = donnees.Where(e => e.Region == criteres.Region);
+            }
 
-            //for (var i = donnees.Count() - 1; i >= 0; i--)     // Le code individuelle Marche! (Region)
-            //{
-            //    var equipe = donnees[i];
-            //    if (criteres.Region != equipe.Region)
-            //    {
-            //        if (criteres.Region == "All")
-            //        {
-            //            continue;
-            //        }
-            //        else
-            //        {
-            //            donnees.RemoveAt(equipe.Id - 1);
-            //        }
-            //    }
-            //}
-
-            //for (var i = donnees.Count() - 1; i >= 0; i--)      // Le code individuelle Marche! (Nom) *Reste majuscules minuscules*
-            //{
-            //    var equipe = donnees[i];
-            //    if (criteres.Nom != equipe.Nom)
-            //    {
-            //        if (criteres.Nom == null || criteres.Nom == "")
-            //        {
-            //            continue;
-            //        }
-            //        else
-            //        {
-            //            donnees.RemoveAt(equipe.Id - 1);
-            //        }
-            //    }
-            //}
+            if (criteres.Nom != null && criteres.Nom != "")
+            {
+                donnees = donnees.Where(e => e.Nom.ToLower() == criteres.Nom.ToLower());
+            }
+           
 
             var model = new PageRechercheViewModel();
             model.Criteres = criteres;
