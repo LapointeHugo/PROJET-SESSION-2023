@@ -10,6 +10,8 @@ namespace ProjetSessionHL.Data
 
         public DbSet<Enfant> Enfants { get; set; }
         public DbSet<Parent> Parents { get; set; }
+        public DbSet<Joueur> Joueurs { get; set; }
+        public DbSet<Tournoi> Tournois { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

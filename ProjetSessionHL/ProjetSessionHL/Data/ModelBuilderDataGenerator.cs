@@ -240,6 +240,74 @@ namespace ProjetSessionHL.Data
                 Coaches = 6
             });
             #endregion
+
+            #region Données pour Joueur
+            builder.Entity<Joueur>().HasData(new Joueur() {
+                Id = 1,
+                Name = "rapId",
+                Game = "Valorant",
+                Age = 21
+            });
+
+            builder.Entity<Joueur>().HasData(new Joueur()
+            {
+                Id = 2,
+                Name = "s0m",
+                Game = "Valorant",
+                Age = 22
+            });
+
+            builder.Entity<Joueur>().HasData(new Joueur()
+            {
+                Id = 3,
+                Name = "faker",
+                Game = "League of Legends",
+                Age = 27
+            });
+
+            builder.Entity<Joueur>().HasData(new Joueur()
+            {
+                Id = 4,
+                Name = "s1mple",
+                Game = "Counter-Strike: Global Offensive",
+                Age = 30
+            });
+
+            builder.Entity<Joueur>().HasData(new Joueur()
+            {
+                Id = 5,
+                Name = "zen",
+                Game = "Rocket League",
+                Age = 16
+            });
+
+            #endregion
+
+            #region Données pour Tournoi
+            builder.Entity<Tournoi>().HasData(new Tournoi() {
+                Id = 1,
+                Name = "Paris Games Week 2023",
+                Location = "Paris, France",
+                PrizePool = 700000
+            });
+
+            builder.Entity<Tournoi>().HasData(new Tournoi()
+            {
+                Id = 2,
+                Name = "Twitch Con",
+                Location = "New York¸ USA",
+                PrizePool = 1500000
+            });
+
+            builder.Entity<Tournoi>().HasData(new Tournoi()
+            {
+                Id = 3,
+                Name = "Game Convention",
+                Location = "Montréal, Canada",
+                PrizePool = 1000000
+            });
+
+            #endregion
         }
     }
 }
