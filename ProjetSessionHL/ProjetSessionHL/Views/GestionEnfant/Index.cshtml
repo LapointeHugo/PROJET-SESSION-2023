@@ -82,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.MontantGagnee)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Parent.Description)
+                @Html.DisplayFor(modelItem => item.IdParent)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
