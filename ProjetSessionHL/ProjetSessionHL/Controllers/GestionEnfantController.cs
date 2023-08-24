@@ -53,24 +53,46 @@ namespace ProjetSessionHL.Controllers
         // GET: GestionEnfantController/Create
         public ActionResult Create()
         {
-            return View();
+            EnfantVM enfantVM = new EnfantVM();
+            if (!ModelState.IsValid)
+            {
+                _baseDeDonnees.Enfants.Add(enfantVM.Enfant);
+                _baseDeDonnees.SaveChanges();
+                TempData["Success"] = $"{enfantVM.Enfant.Nom} subjet added";
+                _logger.LogInformation("Team with id number {0} (" + enfantVM.Enfant.Nom + ") has been created", enfantVM.Enfant.Id);
+                return this.RedirectToAction("Index");
+            }
+
+            enfantVM.ParentSelectList = _baseDeDonnees.Parents.Select(p => new SelectListItem
+            {
+                Text = p.Nom,
+                Value = p.Id.ToString()
+            }).OrderBy(p => p.Text);
+
+            return View(enfantVM);
         }
 
         // POST: GestionEnfantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Enfant enfant)
+        public ActionResult Create(EnfantVM enfantVM)
         {
             if (!ModelState.IsValid)
             {
-                _baseDeDonnees.Enfants.Add(enfant);
+                _baseDeDonnees.Enfants.Add(enfantVM.Enfant);
                 _baseDeDonnees.SaveChanges();
-                TempData["Success"] = $"{enfant.Nom} subjet added";
-                _logger.LogInformation("Team with id number {0} (" + enfant.Nom + ") has been created", enfant.Id);
+                TempData["Success"] = $"{enfantVM.Enfant.Nom} subjet added";
+                _logger.LogInformation("Team with id number {0} (" + enfantVM.Enfant.Nom + ") has been created", enfantVM.Enfant.Id);
                 return this.RedirectToAction("Index");
             }
 
-            return this.View(enfant);
+            enfantVM.ParentSelectList = _baseDeDonnees.Parents.Select(p => new SelectListItem
+            {
+                Text = p.Nom,
+                Value = p.Id.ToString()
+            }).OrderBy(p => p.Text);
+
+            return this.View(enfantVM);
         }
 
         // GET: GestionEnfantController/Edit/5
