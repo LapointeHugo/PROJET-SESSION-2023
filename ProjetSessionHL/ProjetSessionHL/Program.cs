@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using ProjetSessionHL.Services;
+using Microsoft.AspNetCore.Identity;
+using ProjetSessionHL.Initializer;
 
-var builder = WebApplication.CreateBuilder(args); // Crée une web app avec les paramètres envoyés
+var builder = WebApplication.CreateBuilder(args); // Crï¿½e une web app avec les paramï¿½tres envoyï¿½s
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -35,15 +37,24 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 
-
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddRazorPages(); // Permet utilisation de Razor
 
 builder.Services.AddSingleton<BaseDeDonnees>(); // Permet l'utilisation du Singleton
 builder.Services.AddDbContext<ProjetSessionDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ProjetSessionDbContext>();
+
 builder.Services.AddScoped(typeof(IServiceBaseAsync<>), typeof(ServiceBaseAsync<>));
 builder.Services.AddScoped<IParentService, ParentService>();
+
+builder.Services.ConfigureApplicationCookie(options => {
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(option => { option.IdleTimeout = TimeSpan.FromMinutes(20); });
@@ -69,6 +80,21 @@ else
 
 app.UseSession();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
+
+SeedDatabase();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -78,6 +104,7 @@ app.UseEndpoints(endpoints =>
 });
 
 app.MapRazorPages();
+app.UseAuthentication();;
 app.Run();
 
 // Doc

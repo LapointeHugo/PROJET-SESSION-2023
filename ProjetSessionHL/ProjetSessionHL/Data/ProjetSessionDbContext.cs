@@ -1,10 +1,12 @@
 ﻿using ProjetSessionHL.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjetSessionHL.Data
 {
-    public class ProjetSessionDbContext : DbContext
+    public class ProjetSessionDbContext : IdentityDbContext<IdentityUser>
     {
         public ProjetSessionDbContext(DbContextOptions<ProjetSessionDbContext> options) : base(options) { }
 
@@ -14,6 +16,7 @@ namespace ProjetSessionHL.Data
         public DbSet<Tournoi> Tournois { get; set; }
 
         public DbSet<StatistiquesDonnees> StatistiquesDonnees { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
