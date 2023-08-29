@@ -16,6 +16,7 @@ namespace ProjetSessionHL.Data
         public DbSet<Tournoi> Tournois { get; set; }
 
         public DbSet<StatistiquesDonnees> StatistiquesDonnees { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
