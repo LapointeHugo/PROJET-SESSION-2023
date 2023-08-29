@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using ProjetSessionHL.Services;
+using Microsoft.AspNetCore.Identity;
 
-var builder = WebApplication.CreateBuilder(args); // Crée une web app avec les paramètres envoyés
+var builder = WebApplication.CreateBuilder(args); // Crï¿½e une web app avec les paramï¿½tres envoyï¿½s
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -42,6 +43,9 @@ builder.Services.AddSingleton<BaseDeDonnees>(); // Permet l'utilisation du Singl
 builder.Services.AddDbContext<ProjetSessionDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ProjetSessionDbContext>();
+
 builder.Services.AddScoped(typeof(IServiceBaseAsync<>), typeof(ServiceBaseAsync<>));
 builder.Services.AddScoped<IParentService, ParentService>();
 
@@ -69,6 +73,10 @@ else
 
 app.UseSession();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -78,6 +86,7 @@ app.UseEndpoints(endpoints =>
 });
 
 app.MapRazorPages();
+app.UseAuthentication();;
 app.Run();
 
 // Doc

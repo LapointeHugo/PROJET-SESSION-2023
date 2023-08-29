@@ -1,10 +1,11 @@
 ﻿using ProjetSessionHL.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ProjetSessionHL.Data
 {
-    public class ProjetSessionDbContext : DbContext
+    public class ProjetSessionDbContext : IdentityDbContext
     {
         public ProjetSessionDbContext(DbContextOptions<ProjetSessionDbContext> options) : base(options) { }
 
