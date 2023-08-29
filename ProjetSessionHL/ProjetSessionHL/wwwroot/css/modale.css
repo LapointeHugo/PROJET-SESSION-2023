@@ -1,0 +1,45 @@
+﻿#contenant {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 80px;
+    padding-top: 80px;
+}
+
+.bordure {
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.titrefiltre {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.carte {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    border: 2px solid white
+}
+
+    .carte:hover {
+        border: 2px solid #01B4FF;
+    }
+
+.textCarte {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .textCarte:hover {
+        cursor: pointer;
+        color: #01B4FF;
+    }
+
+.icone:hover {
+    cursor: pointer;
+}

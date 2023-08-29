@@ -1,0 +1,38 @@
+﻿@using ProjetSessionHL.Models;
+@model PageModaleViewModel;
+
+@foreach (var item in @Model.Resultat)
+{
+    <br>
+    <div class="equipe col-3">
+        <div>
+            <div id="carte(@item.Abbreviation)" class="card carte" style="width: 175px; height: 235px; background-color: black; border-radius: 20px;">
+                <img class="card-img-top" src="/images/@(item.ImgFile)" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text textCarte">@(item.Nom)</p>
+                </div>
+            </div>
+        </div>
+        <div class="PopupBox" style="display: none; color: white; margin-top: 20px">
+            <p>Name : @(item.Nom)</p>
+            <p>Region : @(item.Region)</p>
+            <p>Created : @(item.AnneCreation)</p>
+            <p>Game : @(item.IdParent)</p>
+            <a asp-controller="GestionEnfant" asp-action="Edit" asp-route-id="@(item.Id)">Edit</a>
+            <a asp-controller="GestionEnfant" asp-action="Delete" asp-route-id="@(item.Id)">Delete</a>
+        </div>
+    </div>
+}
+
+<script>
+    $(".carte").hover(function () {
+        var divToShow = $(this).parent("div").siblings("div.PopupBox");
+        divToShow.css({
+            display: "block",
+            position: "absolute",
+        });
+    },
+        function () {
+            $("div.PopupBox").hide();
+        });
+</script>
