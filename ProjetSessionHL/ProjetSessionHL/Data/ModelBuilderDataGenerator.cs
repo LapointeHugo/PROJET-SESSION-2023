@@ -308,6 +308,202 @@ namespace ProjetSessionHL.Data
             });
 
             #endregion
+
+            #region Données pour Statistiques
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 1,
+                Mois = "Sep",
+                VisitsToWebsite = 10,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 2,
+                Mois = "Oct",
+                VisitsToWebsite = 30,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 3,
+                Mois = "Nov",
+                VisitsToWebsite = 40,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 4,
+                Mois = "Dec",
+                VisitsToWebsite = 60,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 5,
+                Mois = "Jan",
+                VisitsToWebsite = 50,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 6,
+                Mois = "Feb",
+                VisitsToWebsite = 30,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 7,
+                Mois = "Mar",
+                VisitsToWebsite = 70,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 8,
+                Mois = "Apr",
+                VisitsToWebsite = 10,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 9,
+                Mois = "May",
+                VisitsToWebsite = 40,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 10,
+                Mois = "Jun",
+                VisitsToWebsite = 20,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 11,
+                Mois = "Jul",
+                VisitsToWebsite = 10,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            builder.Entity<StatistiquesDonnees>().HasData(new StatistiquesDonnees()
+            {
+                ID = 12,
+                Mois = "Aug",
+                VisitsToWebsite = 40,
+                AccountsCreated = 750,
+                Wins = 20,
+                Loses = 5,
+                GoalsScoredTeam = 51,
+                SavesMadeTeam = 122,
+                ScoreZenTotal = 10244,
+                GoalsZenTotal = 17,
+                ShotsZenTotal = 89,
+                RatingZenTotal = 28,
+            });
+
+            #endregion
         }
     }
 }
