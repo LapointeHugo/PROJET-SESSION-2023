@@ -120,5 +120,19 @@ namespace ProjetSessionHL.Controllers
         //        return View("Detail", enfantsRecherché);
         //    }
         //}
+
+        [Route("/Enfant/Modale")]
+        public IActionResult Modale()
+        {
+            var model = new PageModaleViewModel();
+            model.Criteres = new CritereModaleViewModel();
+            model.Criteres.EstJeuxValorant = true;
+            model.Criteres.EstJeuxLeagueofLegends = true;
+            model.Criteres.EstJeuxCsgo = true;
+            model.Resultat = _baseDeDonnees.Enfants.ToList();
+
+            return View("Modale", model);
+        }
+
     }
 }
