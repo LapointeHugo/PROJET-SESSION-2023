@@ -1,0 +1,60 @@
+﻿.contenant {
+    height: 839px;
+}
+
+.boite {
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    justify-content: center;
+}
+
+    .boite:hover {
+        background-color: rgb(90, 89, 28);
+    }
+
+.sous-titre-db {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 0px;
+}
+
+    .sous-titre-db:hover {
+        cursor: pointer;
+    }
+
+.nom {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+    .nom:hover {
+        color: yellow;
+        cursor: pointer;
+    }
+
+.type {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-right: 20px;
+    background-color: yellow;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+#go {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+    #go:hover {
+        color: yellow;
+        cursor: pointer;
+    }

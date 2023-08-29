@@ -1,0 +1,312 @@
+﻿@model IEnumerable<ProjetSessionHL.Models.StatistiquesDonnees>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard(Admin)</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/admin.css">
+
+    <script src="https://kit.fontawesome.com/963347b1c3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="dashboard" class="container-fluid">
+        <div class="row contenant">
+            <div class="col-3 contenue d-flex flex-column align-items-center" style="background-color: black; padding-top: 80px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+                <img src="/images/admin.png" alt="">
+                <h1 style="color: white; text-align: center; font-size: 32px; font-weight: bold; margin-top: 30px;">ADMIN</h1>
+                <div style="width: 100%;">
+                    <div class="d-flex align-items-center justify-content-start boite" style="margin-top: 30px; padding-left: 28%;">
+                        <i class="fa-regular fa-clipboard fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Dashboard</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-regular fa-envelope fa-2xl" style="color: #ffffff;"></i></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Inbox</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-solid fa-gamepad fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Games</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-solid fa-people-group fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Teams</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 contenue" style="padding-top: 80px; padding-bottom: 80px; padding-left: 40px; padding-right: 40px; background-color: black; border-left: 1px solid #01B4FF;; border-right: 1px solid #01B4FF;;">
+                <div class="row" style="height: 15%; margin-bottom: 20px;">
+                    <div class="col-7">
+                        <p style="color: white; font-size: 40px; font-weight: bold; margin-bottom: 0px;">Welcome <a style="color: #01B4FF;">Admin</a> !</p>
+                        <p style="color: rgb(156, 156, 156); font-size: 20px; font-weight: 600;">Admin of ElitePlay</p>
+                    </div>
+                    <div class="col-5 d-flex justify-content-end align-items-center">
+                        <p style="color: white; font-size: 20px; font-weight: 600;"><a style="color: rgb(156, 156, 156);">HOME /</a> Dashboard</p>
+                    </div>
+                </div>
+                <div style="height: 36%; border: 2px solid white; background-color: rgb(20 , 20, 23); margin-bottom: 40px; border-radius: 20px; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;">
+                    <div style="height: 30%;">
+                        <p style="font-size: 24px; color: white; font-weight: bold; margin-bottom: 0px;">Traffic (in thousands)</p>
+                        <p style="font-size: 12px; color: #01B4FF; font-weight: 600;">January 01, 2023 - December 31, 2023</p>
+                    </div>
+                    <div class="d-flex align-items-end" style="text-align: center; height: 70%;">
+                        <div class="col-1 justify-content-center">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 1)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 2)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 3)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 4)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 5)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 6)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 8)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 9)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 10)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 11)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                        <div class="col-1">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 12)
+                                {
+                                    <p style="font-size: 12px; color: #01B4FF; font-weight: 600">@item.VisitsToWebsite</p>
+                                    <div style="background-color: #01B4FF; height: @(item.VisitsToWebsite)px; width: 10px; align-content: center;"></div>
+                                    <p style="font-size: 12px; color: white; font-weight: 600;">@item.Mois</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-around" style="height: 100%;">
+                    <div style="height: 36%; border: 2px solid white; border-radius: 20px; background-color: rgb(20 , 20, 23); padding-left: 20px; padding-right: 20px;" class="col-7">
+                        <div style="height: 30%" class="d-flex flex-column justify-content-center">
+                            <p style="font-size: 24px; font-weight: bold; color: white; margin-bottom: 0px;">Users</p>
+                            <p style="font-size: 14px; font-weight: 600; color: rgb(94, 94, 94); margin-bottom: 0px;">22.150 registered users</p>
+                        </div>
+                        <div style="height: 60%; overflow-y: scroll;">
+                            <div style="height: 25%; border-bottom: 1px solid rgb(156, 156, 156);" class="d-flex align-items-center justify-content-between">
+                                <i class="fa-solid fa-person fa-xl" style="color: #9c9c9c;"></i>
+                                <p class="detailsuseradmin" style="text-align: left;">User</p>
+                                <p class="detailsuseradmin" style="text-align: left;">Country</p>
+                                <p class="detailsuseradmin" style="text-align: left;">Role</p>
+                                <p class="detailsuseradmin" style="text-align: left;">Activity</p>
+                            </div>
+                            <div style="height: 40px;">
+                                <div class="d-flex align-items-center justify-content-between" style="height: 100%; border-bottom: 1px solid rgb(156, 156, 156);">
+                                    <img src="/images/zen.jpg" width="30px" height="30px">
+                                    <p class="detailsuseradmintexte" style="text-align: left;">zen</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">France</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Customer</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">10 sec ago</p>
+                                </div>
+                            </div>
+                            <div style="height: 40px;">
+                                <div class="d-flex align-items-center justify-content-between" style="height: 100%; border-bottom: 1px solid rgb(156, 156, 156);">
+                                    <img src="/images/alpha54.jpg" width="30px" height="30px">
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Alpha54</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">France</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Customer</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">10 sec ago</p>
+                                </div>
+                            </div>
+                            <div style="height: 40px;">
+                                <div class="d-flex align-items-center justify-content-between" style="height: 100%; border-bottom: 1px solid rgb(156, 156, 156);">
+                                    <img src="/images/radosin.jpg" width="30px" height="30px">
+                                    <p class="detailsuseradmintexte" style="text-align: left;">radosin</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">France</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Customer</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">10 sec ago</p>
+                                </div>
+                            </div>
+                            <div style="height: 40px;">
+                                <div class="d-flex align-items-center justify-content-between" style="height: 100%; border-bottom: 1px solid rgb(156, 156, 156);">
+                                    <img src="/images/ferra.jpg" width="30px" height="30px">
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Ferra</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">France</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">Customer</p>
+                                    <p class="detailsuseradmintexte" style="text-align: left;">10 sec ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-between" style="height: 36%;">
+                        <div style="border: 2px solid white; border-radius: 20px; height: 45%;" class="d-flex flex-column justify-content-center align-items-center">
+                            <p style="color: white; font-size: 20px; font-weight: bold; margin-bottom: 0px;">Visits this week</p>
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 1)
+                                {
+                                    var value = (item.VisitsToWebsite / 4);
+                                    <p style="color: #01B4FF; font-size: 28px; font-weight: bold; margin-bottom: 0px;">@value K</p>
+                                }
+
+                            }
+                        </div>
+                        <div style="border: 2px solid white; border-radius: 20px; height: 45%;" class="d-flex flex-column justify-content-center align-items-center">
+                            <p style="color: white; font-size: 20px; font-weight: bold; margin-bottom: 0px;">New Users Today</p>
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == 1)
+                                {
+                                    var value = (item.AccountsCreated / 4);
+                                    <p style="color: #01B4FF; font-size: 28px; font-weight: bold; margin-bottom: 0px;">@value accounts</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 contenue d-flex flex-column align-items-center" style="background-color: black; padding-top: 80px; padding-bottom: 150px; padding-left: 40px; padding-right: 40px; height: auto;">
+                <p style="font-size:32px; font-weight: bold; color: white; margin-bottom: 0px; height: 10%;">SITE ACTIVITY</p>
+                <div class="bordure" style="height: 90%; background-color: rgb(20 , 20, 23); width: 100%; border-radius: 20px; overflow-y: scroll; padding-left: 20px; padding-right: 20px; padding-top: 10px">
+                    <div style="height: 100px;">
+                        <div class="d-flex justify-content-between">
+                            <p style="font-size: 20px; font-weight: bold; color: white;">Acount created</p>
+                            <p style="font-size: 20px; font-weight: bold; color: rgb(156, 156, 156);">10:46</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p style="font-size: 28px; font-weight: bold; color: white;">User : <a style="color: #01B4FF;">rapId</a></p>
+                        </div>
+                    </div>
+                    <hr style="color: white">
+                    <div style="height: 100px;">
+                        <div class="d-flex justify-content-between">
+                            <p style="font-size: 20px; font-weight: bold; color: white;">Acount created</p>
+                            <p style="font-size: 20px; font-weight: bold; color: rgb(156, 156, 156);">10:46</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p style="font-size: 28px; font-weight: bold; color: white;">User : <a style="color: #01B4FF;">rapId</a></p>
+                        </div>
+                    </div>
+                    <hr style="color: white">
+                    <div style="height: 100px;">
+                        <div class="d-flex justify-content-between">
+                            <p style="font-size: 20px; font-weight: bold; color: white;">Acount created</p>
+                            <p style="font-size: 20px; font-weight: bold; color: rgb(156, 156, 156);">10:46</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p style="font-size: 28px; font-weight: bold; color: white;">User : <a style="color: #01B4FF;">rapId</a></p>
+                        </div>
+                    </div>
+                    <hr style="color: white">
+                    <div style="height: 100px;">
+                        <div class="d-flex justify-content-between">
+                            <p style="font-size: 20px; font-weight: bold; color: white;">Acount created</p>
+                            <p style="font-size: 20px; font-weight: bold; color: rgb(156, 156, 156);">10:46</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p style="font-size: 28px; font-weight: bold; color: white;">User : <a style="color: #01B4FF;">rapId</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @section NomPage {
+    ADMIN
+    }
+</body>
+</html>
+
