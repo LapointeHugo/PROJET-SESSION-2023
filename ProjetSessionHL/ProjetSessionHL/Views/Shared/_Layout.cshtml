@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/963347b1c3.js" crossorigin="anonymous"></script>
     <title>Layout</title>
 </head>
-<body>
+<body style="background-color: black">
     <header>
         <nav class="navbar navbar-expand-sm navbar-light" style="padding: 0px; background-color: black;">
             <div class="container-fluid" style="padding: 0px">
@@ -34,6 +34,12 @@
                     </li>
                     <li id="lien-menu" class="nav-item">
                         <a asp-controller="Enfant" asp-action="Modale" class="manage">MODALE</a>
+                    </li>
+                    <li id="lien-menu" class="nav-item">
+                        <a asp-controller="Dashboard" asp-action="Admin" class="manage">DASHBOARD ADMIN</a>
+                    </li>
+                    <li id="lien-menu" class="nav-item">
+                        <a asp-controller="Dashboard" asp-action="Coach" class="manage">DASHBOARD COACH</a>
                     </li>
                     <span id="language" class="nav-text">
                         <div class="text-right">
