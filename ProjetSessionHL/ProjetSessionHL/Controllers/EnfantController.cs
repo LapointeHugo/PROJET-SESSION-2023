@@ -134,5 +134,47 @@ namespace ProjetSessionHL.Controllers
             return View("Modale", model);
         }
 
+        [Route("/Enfant/ModaleFiltre")]
+        public IActionResult ModaleFiltre(CritereModaleViewModel criteres)
+        {
+            IEnumerable<Enfant> donnees = _baseDeDonnees.Enfants; ;
+
+            if (criteres.EstJeuxValorant == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 1);
+            }
+
+            if (criteres.EstJeuxLeagueofLegends == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 2);
+            }
+
+            if (criteres.EstJeuxCsgo == false)
+            {
+                donnees = donnees.Where(e => e.IdParent != 3);
+            }
+
+            if (criteres.Creation != 0)
+            {
+                donnees = donnees.Where(e => e.AnneCreation == criteres.Creation);
+            }
+
+            if (criteres.Region != "All")
+            {
+                donnees = donnees.Where(e => e.Region == criteres.Region);
+            }
+
+            if (criteres.Nom != null && criteres.Nom != "")
+            {
+                donnees = donnees.Where(e => e.Nom.ToLower() == criteres.Nom.ToLower());
+            }
+
+
+            var model = new PageModaleViewModel();
+            model.Criteres = criteres;
+            model.Resultat = donnees.ToList();
+
+            return View("Modale", model);
+        }
     }
 }
