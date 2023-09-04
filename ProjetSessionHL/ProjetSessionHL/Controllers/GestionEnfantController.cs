@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,11 +9,14 @@ using Microsoft.Extensions.Logging;
 using ProjetSessionHL.Data;
 using ProjetSessionHL.Models;
 using ProjetSessionHL.Services;
+using ProjetSessionHL.Utility;
 using ProjetSessionHL.ViewModels;
+using System.Data;
 using System.Linq;
 
 namespace ProjetSessionHL.Controllers
 {
+    [Authorize(Roles = AppConstants.CoachRole + "," + AppConstants.AdminRole)]
     public class GestionEnfantController : Controller
     {
         private readonly ProjetSessionDbContext _baseDeDonnees;
@@ -29,6 +33,7 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: GestionEnfantController
+        [AllowAnonymous]
         [Route("/GestionEnfant/Index")]
         public ActionResult Index()
         {
@@ -37,6 +42,7 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: GestionEnfantController/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int id)
         {
             var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Id == id).SingleOrDefault();
@@ -51,6 +57,7 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: GestionEnfantController/Create
+        [Authorize(Roles = AppConstants.CoachRole)]
         public ActionResult Create()
         {
             EnfantVM enfantVM = new EnfantVM();
@@ -96,6 +103,7 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: GestionEnfantController/Edit/5
+        [Authorize(Roles = AppConstants.CoachRole)]
         public async Task<ActionResult> Edit(int id)
         {
             EnfantVM enfantVM = new EnfantVM();
@@ -132,6 +140,7 @@ namespace ProjetSessionHL.Controllers
         }
 
         // GET: GestionEnfantController/Delete/5
+        [Authorize(Roles = AppConstants.AdminRole)]
         public ActionResult Delete(int id)
         {
             var enfantsRecherché = _baseDeDonnees.Enfants.Where(e => e.Id == id).SingleOrDefault();
