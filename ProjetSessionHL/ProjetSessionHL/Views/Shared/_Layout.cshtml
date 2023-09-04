@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProjetSessionHL.Utility;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,12 +36,19 @@
                     <li id="lien-menu" class="nav-item">
                         <a asp-controller="Enfant" asp-action="Modale" class="manage">MODALE</a>
                     </li>
-                    <li id="lien-menu" class="nav-item">
-                        <a asp-controller="Dashboard" asp-action="Admin" class="manage">DASHBOARD ADMIN</a>
-                    </li>
-                    <li id="lien-menu" class="nav-item">
-                        <a asp-controller="Dashboard" asp-action="Coach" class="manage">DASHBOARD COACH</a>
-                    </li>
+                    @if (this.User.IsInRole(AppConstants.AdminRole))
+                    {
+                        <li id="lien-menu" class="nav-item">
+                            <a asp-controller="Dashboard" asp-action="Admin" class="manage">DASHBOARD ADMIN</a>
+                        </li>
+                    }
+                    @if (this.User.IsInRole(AppConstants.AdminRole) ||
+                    this.User.IsInRole(AppConstants.CoachRole))
+                    {
+                        <li id="lien-menu" class="nav-item">
+                            <a asp-controller="Dashboard" asp-action="Coach" class="manage">DASHBOARD COACH</a>
+                        </li>
+                    }
                     <span id="language" class="nav-text">
                         <div class="text-right">
                             @await Html.PartialAsync("_SelectLanguage")
