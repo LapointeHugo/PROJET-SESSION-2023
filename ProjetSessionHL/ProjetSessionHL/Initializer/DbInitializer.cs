@@ -49,7 +49,6 @@ namespace ProjetSessionHL.Initializer
                 {
                     UserName = "rapId@ProjetSession.com",
                     Email = "rapId@ProjetSession.com",
-                    NickName = "rapId",
                     PhoneNumber = "1111111111",
                     EmailConfirmed = true
                 }, "Admin123$").GetAwaiter().GetResult();
@@ -63,7 +62,6 @@ namespace ProjetSessionHL.Initializer
                 {
                     UserName = "fNs@ProjetSession.com",
                     Email = "fNs@ProjetSession.com",
-                    NickName = "fNs",
                     PhoneNumber = "1111111111",
                     EmailConfirmed = true,
                 }, "Coach123$").GetAwaiter().GetResult();
@@ -76,7 +74,6 @@ namespace ProjetSessionHL.Initializer
                 {
                     UserName = "beaulo@ProjetSession.com",
                     Email = "beaulo@ProjetSession.com",
-                    NickName = "beaulo",
                     PhoneNumber = "1111111111",
                     EmailConfirmed = true,
                 }, "Coach123$").GetAwaiter().GetResult();

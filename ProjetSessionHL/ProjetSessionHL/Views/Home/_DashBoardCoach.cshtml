@@ -1,0 +1,270 @@
+﻿@model IEnumerable<ProjetSessionHL.Models.StatistiquesDonnees>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard(Coach)</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/coach.css">
+
+    <script src="https://kit.fontawesome.com/963347b1c3.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div id="dashboard" class="container-fluid">
+        <div class="row contenant">
+            <div class="col-3 contenue d-flex flex-column align-items-center" style="background-color: black; padding-top: 80px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+                <img src="/images/LogoVitality.png" height="200" width="200" style="margin-bottom: 40px;">
+                <h1 id="go">VITALITY ACADEMY</h1>
+                <div style="width: 100%;">
+                    <div class="d-flex align-items-center justify-content-start boite" style="margin-top: 50px; padding-left: 28%;">
+                        <i class="fa-regular fa-clipboard fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Dashboard</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-regular fa-envelope fa-2xl" style="color: #ffffff;"></i></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Inbox</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-solid fa-calendar-days fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Schedule</p>
+                    </div>
+                    <div class="d-flex align-items-center boite justify-content-start" style="padding-left: 28%;">
+                        <i class="fa-regular fa-circle-question fa-2xl" style="color: #ffffff;"></i>
+                        <p class="sous-titre-db">&nbsp;&nbsp; Help</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 contenue" style="padding-top: 80px; padding-bottom: 0px; padding-left: 40px; padding-right: 40px; background-color: black;">
+                <div class="row" style="height: 15%;">
+                    <div class="col-7">
+                        <p style="color: white; font-size: 40px; font-weight: bold; margin-bottom: 0px;">Welcome <a style="color: #ffff00;">Coach</a> rapId !</p>
+                        <p style="color: rgb(156, 156, 156); font-size: 20px; font-weight: 600;">Coach of VITALITY Academy</p>
+                    </div>
+                    <div class="col-5 d-flex justify-content-end align-items-center">
+                        <p style="color: white; font-size: 20px; font-weight: 600;"><a style="color: rgb(156, 156, 156);">HOME /</a> Dashboard</p>
+                    </div>
+                </div>
+                <div class="row d-flex flex-column align-items-start" style="height: 36%; padding-top: 20px;">
+                    <p style="color: white; font-size: 24px; font-weight: bold; height: fit-content; margin-bottom: 3px;">Player's List</p>
+                    <hr style="color: white; height: fit-content; margin-bottom: 30px;">
+                    <div class="d-flex justify-content-around align-items-center" style="height: max-content;">
+                        <div id="carte1" class="card" style="width: 151px; height: 150px; background-color: black;">
+                            <img src="/images/zen.jpg" class="card-img-top" height="150px" width="150px" style="border: 4px solid yellow; border-radius: 20px;">
+                            <div class="card-body">
+                                <p class="card-text nom">zen</p>
+                            </div>
+                        </div>
+                        <div id="carte2" class="card" style="width: 150px; height: 150px; background-color: black;">
+                            <img src="/images/radosin.jpg" class="card-img-top" height="150px" width="150px" style="border: 4px solid yellow; border-radius: 20px;">
+                            <div class="card-body">
+                                <p class="card-text nom">radosin</p>
+                            </div>
+                        </div>
+                        <div id="carte3" class="card" style="width: 150px; height: 150px; background-color: black">
+                            <img src="/images/alpha54.jpg" class="card-img-top" height="150px" width="150px" style="border: 4px solid yellow; border-radius: 20px;">
+                            <div class="card-body">
+                                <p class="card-text nom">Alpha54</p>
+                            </div>
+                        </div>
+                        <div id="carte4" class="card" style="width: 150px; height: 150px; background-color: black;">
+                            <img src="/images/ferra.jpg" class="card-img-top" height="150px" width="150px" style="border: 4px solid yellow; border-radius: 20px;">
+                            <div class="card-body">
+                                <p class="card-text nom">Ferra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height: 42.5%; padding-top: 20px;">
+                    <div class="col-6" style="color: white;">
+                        <p style="color: white; font-size: 24px; font-weight: bold; height: fit-content; margin-bottom: 3px;">Team Statistics</p>
+                        <hr style="color: white; height: fit-content; margin-bottom: 15px; margin-top: 0px;">
+                        @foreach (var item in Model)
+                        {
+                            if (item.ID == 1)
+                            {
+                                double win = (item.Wins * 100) / (item.Wins + item.Loses);
+                                double goal = item.GoalsScoredTeam / (item.Wins + item.Loses);
+                                double save = item.SavesMadeTeam / (item.Wins + item.Loses);
+                                var match = item.Wins + item.Loses;
+
+                                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0px; height: 19%;">Winning % : <a style="color: #ffff00;">@win %</a></p>
+                                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0px; height: 19%;">Goals/Game : <a style="color: #ffff00;">@goal</a></p>
+                                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0px; height: 19%;">Saves/Game : <a style="color: #ffff00;">@save</a></p>
+                                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0px; height: 19%;">Matches Played : <a style="color: #ffff00;">@match</a></p>
+                            }
+
+                        }
+
+                    </div>
+                    <div class="col-6">
+                        <p style="color: white; font-size: 24px; font-weight: bold; height: fit-content; margin-bottom: 3px;">Upcoming Events</p>
+                        <hr style="color: white; height: fit-content; margin-bottom: 15px; margin-top: 0px;">
+                        <div style="height: 215px; overflow-y: scroll;">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row" style="color: white; padding-left: 10px; padding-right: 10px;">
+                                    <p class="col-auto type">SCRIMS</p>
+                                    <p class="col-auto" style="font-size: 15px; font-weight: 600; margin-bottom: 0px;">8 september</p>
+                                    <p class="col justify-content-end" style="margin-bottom: 0px; text-align: end;">...</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center" style="color: white; padding-left: 10px; padding-right: 10px; margin-top: 20px;">
+                                    <i class="fa-solid fa-circle" style="color: #ffff00;"></i>
+                                    <p style="margin-bottom: 0px;">&nbsp; 3v3 versus Team Liquid Academy</p>
+                                </div>
+                            </div>
+                            <hr style="color: yellow;">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row" style="color: white; padding-left: 10px; padding-right: 10px;">
+                                    <p class="col-auto type">MEETING</p>
+                                    <p class="col-auto" style="font-size: 15px; font-weight: 600; margin-bottom: 0px;">10 september</p>
+                                    <p class="col justify-content-end" style="margin-bottom: 0px; text-align: end;">...</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center" style="color: white; padding-left: 10px; padding-right: 10px; margin-top: 20px;">
+                                    <i class="fa-solid fa-circle" style="color: #ffff00;"></i>
+                                    <p style="margin-bottom: 0px;">&nbsp; Everyone must be present</p>
+                                </div>
+                            </div>
+                            <hr style="color: yellow;">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row" style="color: white; padding-left: 10px; padding-right: 10px;">
+                                    <p class="col-auto type">SCRIMS</p>
+                                    <p class="col-auto" style="font-size: 15px; font-weight: 600; margin-bottom: 0px;">12 september</p>
+                                    <p class="col justify-content-end" style="margin-bottom: 0px; text-align: end;">...</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center" style="color: white; padding-left: 10px; padding-right: 10px; margin-top: 20px;">
+                                    <i class="fa-solid fa-circle" style="color: #ffff00;"></i>
+                                    <p style="margin-bottom: 0px;">&nbsp; 3v3 versus FNATIC Academy</p>
+                                </div>
+                            </div>
+                            <hr style="color: yellow;">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row" style="color: white; padding-left: 10px; padding-right: 10px;">
+                                    <p class="col-auto type">MATCH</p>
+                                    <p class="col-auto" style="font-size: 15px; font-weight: 600; margin-bottom: 0px;">15 september</p>
+                                    <p class="col justify-content-end" style="margin-bottom: 0px; text-align: end;">...</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center" style="color: white; padding-left: 10px; padding-right: 10px; margin-top: 20px;">
+                                    <i class="fa-solid fa-circle" style="color: #ffff00;"></i>
+                                    <p style="margin-bottom: 0px;">&nbsp; RLCS Paris Major 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 contenue" style="background-color: black; padding-top: 80px; padding-bottom: 0px; padding-left: 40px; padding-right: 40px; height: auto;">
+                <div style="height: 10%;" class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img src="/images/LogoVitality.png" height="50" width="50">
+                        <p style="font-size:16px; font-weight: bold; color: white; margin-bottom: 0px;">&nbsp; Team Chat Room</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-circle" style="color: #ffff00;"></i>
+                        <p style="font-size:16px; font-weight: bold; color: white; margin-bottom: 0px;">&nbsp; 4 &nbsp;</p>
+                        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+                <hr style="color: yellow; margin-top:  0px;">
+                <div style="height: 58%; border: 2px solid white; background-color: black; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; overflow-y: scroll; border-radius: 5px;">
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">zen</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:18</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">radosin</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:17</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">rapId</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:17</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">Ferra</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:16</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">Alpha54</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:12</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center" style="color: white;">
+                            <p style="font-size: 18px; font-weight: bold; margin-bottom: 0px;">Alpha54</p>
+                            <p style="color: #ffff00; font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 4px;">&nbsp; 10:11</p>
+                        </div>
+                        <div style="text-align: justify; font-size: 14px; color: white;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr style="color: yellow;">
+                    </div>
+                </div>
+                <div style="height: auto; border: 2px solid white; margin-top: 20px; margin-bottom: 16px; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; border-radius: 10px;">
+                    <p style="font-size: 20px; font-weight: bold; color: rgb(156, 156, 156); margin-bottom: 0;">Type your message here...</p>
+                </div>
+                <div style="height: 6%;" class="d-flex align-items-center justify-content-around">
+                    <i class="fa-solid fa-face-smile fa-xl" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-link fa-xl" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-b fa-xl" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-list-ul fa-xl" style="color: #ffffff;"></i>
+                    <p style="font-size: 20px; font-weight: bold; color: black; background-color: #ffff00; border-radius: 10px; margin-bottom: 0px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">SEND</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @section NomPage {
+    COACH
+    }
+
+    <script>
+        $("#go").click(function () {
+            $("#carte1")
+                .animate({ width: "100px", height: "100px" }, 2000)
+                .animate({ width: "150px", height: "150px" }, 2000)
+            $("#carte2")
+                .animate({ width: "100px", height: "100px" }, 2000)
+                .animate({ width: "150px", height: "150px" }, 2000)
+            $("#carte3")
+                .animate({ width: "100px", height: "100px" }, 2000)
+                .animate({ width: "150px", height: "150px" }, 2000)
+            $("#carte4")
+                .animate({ width: "100px", height: "100px" }, 2000)
+                .animate({ width: "150px", height: "150px" }, 2000)
+        });
+    </script>
+</body>
+</html>

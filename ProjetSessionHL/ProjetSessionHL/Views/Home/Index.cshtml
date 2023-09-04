@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProjetSessionHL.Models.Parent>
+﻿@using ProjetSessionHL.Utility;
+@model IEnumerable<ProjetSessionHL.Models.Parent>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,18 +16,29 @@
 </head>
 <body>
     <main>
-        <div id="contenueHéro" class="container-fluid">
-            <p id="titreHéro" style="font-weight: bold; margin-bottom: 42px;"><a style="color: rgb(1, 180, 255)">E</a>LITE<a style="color: rgb(1, 180, 255)">P</a>LAY</p>
-            <partial name="_SearchButtonPartial" />
-        </div>
-
-        <hr class="solid" style="margin: 0px">
-
-        <div id="background" class="container-fluid">
-            <div id="contenuelisteParent" class="container">
-               <partial name="_ListJeuxPartial" for="@Model" />
+        @if (this.User.IsInRole(AppConstants.AdminRole))
+        {
+            <partial name="_DashBoardAdmin" />
+        }
+        else  @if (this.User.IsInRole(AppConstants.CoachRole))
+        {
+            <partial name="_DashBoardCoach" />
+        }
+        else
+        {
+            <div id="contenueHéro" class="container-fluid">
+                <p id="titreHéro" style="font-weight: bold; margin-bottom: 42px;"><a style="color: rgb(1, 180, 255)">E</a>LITE<a style="color: rgb(1, 180, 255)">P</a>LAY</p>
+                <partial name="_SearchButtonPartial" />
             </div>
-        </div> 
+
+            <hr class="solid" style="margin: 0px">
+
+            <div id="background" class="container-fluid">
+                <div id="contenuelisteParent" class="container">
+                    <partial name="_ListJeuxPartial" for="@Model" />
+                </div>
+            </div>
+        }
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     @section NomPage {
